@@ -446,7 +446,7 @@ public abstract class AbstractTermMap implements TermMap {
 				throw new IllegalStateException(
 						"[AbstractTermMap:getValue] impossible to extract from an empty database value set.");
 			result = R2RMLToolkit.extractColumnValueFromStringTemplate(
-					stringTemplate, dbValues, dbTypes);
+					stringTemplate, dbValues, dbTypes, termType);
 			return result;
 
 		default:
