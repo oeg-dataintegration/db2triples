@@ -88,6 +88,18 @@ public class ColumnIdentifierImpl implements ColumnIdentifier {
 		return new ColumnIdentifierImpl(columnName.toLowerCase(), null);
 	    }
 	}
+	
+	/*
+	 * H2 
+	 */
+	else if (currentDriver.equals(DriverType.H2)) {
+		if (isDelimitedIdentifier(columnName)) {
+			String internValue = extractValueFromDelimitedIdentifier(columnName);
+			return new ColumnIdentifierImpl(internValue, null);
+		}
+		return new ColumnIdentifierImpl(columnName, null);
+	}
+	
 	// Be optimist...
 	return new ColumnIdentifierImpl(columnName, null);
     }
@@ -126,6 +138,14 @@ public class ColumnIdentifierImpl implements ColumnIdentifier {
 			sqlType);
 	    }
 	}
+	
+	/*
+	 * H2 
+	 */
+	else if (currentDriver.equals(DriverType.H2)) {
+		return new ColumnIdentifierImpl(columnLabel, sqlType);
+	}
+	
 	// Be optimist...
 	return new ColumnIdentifierImpl(columnLabel, sqlType);
     }
@@ -175,6 +195,21 @@ public class ColumnIdentifierImpl implements ColumnIdentifier {
 		}
 	    }
 	}
+	else if(currentDriver.equals(DriverType.H2)){
+			if (localResult.equals(input)) {
+				localResult = input.replaceAll("\\{\"" + columnName + "\"\\}", replaceValue);
+			}
+			// Search "columnName" not case-sensitive
+			if (localResult.equals(input) && !isDelimitedIdentifier(columnName)) {
+				Set<String> tokens = R2RMLToolkit.extractColumnNamesFromStringTemplate(input);
+				for (String token : tokens) {
+					if (token.toUpperCase().equals(columnName)) {
+						localResult = input.replaceAll("\\{" + token + "\\}", replaceValue);
+						break;
+					}
+				}
+			}
+	}
 
 	// Must have replaced something
 	assert !localResult.equals(input) : ("Impossible to replace "
@@ -216,6 +251,9 @@ public class ColumnIdentifierImpl implements ColumnIdentifier {
 	    if (other.columnName != null) {
 		return false;
 	    }
+	}else if(R2RMLProcessor.getDriverType().equals(DriverType.H2)) { 
+			return columnName.replaceAll("^\"|\"$", "").equalsIgnoreCase(
+					other.columnName.replaceAll("^\"|\"$", ""));
 	}
 	else if (!columnName.equals(other.columnName)) {
 	    return false;

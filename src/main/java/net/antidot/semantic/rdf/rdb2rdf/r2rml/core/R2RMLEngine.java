@@ -422,11 +422,8 @@ public class R2RMLEngine {
 						"[R2RMLEngine:applyValueToParentRow] Unknown " + column
 								+ "in parent row.");
 			if (m >= n) {
-				byte[] value = referencingRows.getBytes(m);
-				if(value != null &&
-						R2RMLProcessor.getDriverType().equals(DriverType.Oracle)) {
-					value = referencingRows.getString(m).getBytes();
-				}
+
+				byte[] value = getBytes(referencingRows, m);
 				result.put(column, value);
 			}
 		}
@@ -462,11 +459,7 @@ public class R2RMLEngine {
 						"[R2RMLEngine:applyValueToChildRow] Unknown " + column
 								+ "in child row.");
 			if (m <= n) {
-				byte[] value = referencingRows.getBytes(m);
-				if(value != null &&
-						R2RMLProcessor.getDriverType().equals(DriverType.Oracle)) {
-					value = referencingRows.getString(m).getBytes();
-				}
+				byte[] value = getBytes(referencingRows, m);
 				result.put(column, value);
 			}
 		}
@@ -652,7 +645,7 @@ public class R2RMLEngine {
 	}
 
 	/**
-	 * “Add triples to the output dataset” is a process that takes the following
+	 * Add triples to the output dataset is a process that takes the following
 	 * inputs: Subject, an IRI or blank node or empty Predicate, an IRI or empty
 	 * Object, an RDF term or empty Target graphs, a set of zero or more IRIs
 	 * 
@@ -714,22 +707,13 @@ public class R2RMLEngine {
 			if(cId.equals(column)) {
 				log.debug("[R2RMLEngine:applyValueToRow] Value found : \""
 					+ rows.getString(i) +"\" (Type: "+cId.getSqlType()+")");
-				byte[] rawData;
-				//H2 bug on string to hex conversion: ERROR 90003
-				if(R2RMLProcessor.getDriverType().equals(DriverType.H2) 
-						&& cId.getSqlType() == SQLType.VARCHAR) {
-					rawData = rows.getString(i).getBytes();
-				} else {
-					rawData = rows.getBytes(i);
-					// http://bugs.mysql.com/bug.php?id=65943
-					if(rawData != null &&
-						R2RMLProcessor.getDriverType().equals(DriverType.MysqlDriver) &&
-						cId.getSqlType() == SQLType.CHAR) {
-					    rawData = rows.getString(i).getBytes();
-					} else if(rawData != null &&
-							R2RMLProcessor.getDriverType().equals(DriverType.Oracle)) {
-						rawData = rows.getString(i).getBytes();
-					}
+				byte[] rawData = getBytes(rows, i);
+				
+				// http://bugs.mysql.com/bug.php?id=65943
+				if(rawData != null &&
+					R2RMLProcessor.getDriverType().equals(DriverType.MysqlDriver) &&
+					cId.getSqlType() == SQLType.CHAR) {
+				    rawData = rows.getString(i).getBytes();
 				}
 				result.put(cId, rawData);
 				found = true;
@@ -746,8 +730,8 @@ public class R2RMLEngine {
 
 	/**
 	 * A term map is a function that generates an RDF term from a logical table
-	 * row. The result of that function can be: Empty – if any of the referenced
-	 * columns of the term map has a NULL value, An RDF term – the common case,
+	 * row. The result of that function can be: Empty - if any of the referenced
+	 * columns of the term map has a NULL value, An RDF term - the common case,
 	 * A data error.
 	 * 
 	 * The term generation rules, applied to a value, are described in this
@@ -975,8 +959,8 @@ public class R2RMLEngine {
 		log.debug("[R2RMLEngine:constructLogicalTable] Run effective SQL Query : "
 				+ triplesMap.getLogicalTable().getEffectiveSQLQuery());
 		ResultSet rs = null;
-		java.sql.Statement s = conn.createStatement(
-				ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+
+		java.sql.Statement s = createStatement();
 		if (triplesMap.getLogicalTable().getEffectiveSQLQuery() != null) {
 
 			s.executeQuery(triplesMap.getLogicalTable().getEffectiveSQLQuery());
@@ -1001,8 +985,7 @@ public class R2RMLEngine {
 		log.debug("[R2RMLEngine:constructJointTable] Run joint SQL Query : "
 				+ refObjectMap.getJointSQLQuery());
 		ResultSet rs = null;
-		java.sql.Statement s = conn.createStatement(
-				ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+		java.sql.Statement s = createStatement();
 		if (refObjectMap.getJointSQLQuery() != null) {
 			s.executeQuery(refObjectMap.getJointSQLQuery());
 			rs = s.getResultSet();
@@ -1033,5 +1016,32 @@ public class R2RMLEngine {
 					"[R2RMLEngine:constructInversionTable] SQL request "
 							+ "failed : result of effective SQL query is null.");
 		return rs;
+	}
+	
+	private byte[] getBytes(ResultSet rs, int m) throws SQLException {
+		byte[] value = null;
+		if(R2RMLProcessor.getDriverType().equals(DriverType.H2)  
+				|| R2RMLProcessor.getDriverType().equals(DriverType.MSSQL)
+				|| R2RMLProcessor.getDriverType().equals(DriverType.DB2)
+				|| R2RMLProcessor.getDriverType().getDriverName().contains("oracle")) {
+			// see e.g. https://groups.google.com/forum/#!topic/h2-database/ZIQMelu7zG8
+			
+			// Note: null check required for NIL values in database
+			if (rs.getString(m)!=null)
+				value = rs.getString(m).getBytes();
+		} else {
+			value = rs.getBytes(m);
+		}
+		return value;
+	}
+	
+	private java.sql.Statement createStatement() throws SQLException {
+		if(R2RMLProcessor.getDriverType().equals(DriverType.H2)  
+				|| R2RMLProcessor.getDriverType().equals(DriverType.MSSQL)
+				|| R2RMLProcessor.getDriverType().equals(DriverType.DB2)
+				|| R2RMLProcessor.getDriverType().getDriverName().contains("oracle"))
+			return conn.createStatement();
+		else
+			return conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 	}
 }

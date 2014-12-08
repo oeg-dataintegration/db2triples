@@ -404,6 +404,14 @@ public abstract class AbstractTermMap implements TermMap {
 				throw new IllegalStateException(
 						"[AbstractTermMap:getValue] impossible to extract from an empty database value set.");
 			byte[] bytesResult = dbValues.get(columnValue);
+			// fallback: check in case-insensitive way (see official test suite executed with H2)
+			if(bytesResult==null) {
+				for(ColumnIdentifier colId : dbValues.keySet()) {
+					if(colId.toString().equalsIgnoreCase(columnValue.toString())) {
+						bytesResult = dbValues.get(colId);
+					}
+				}
+			}
 			/* Extract the SQLType in dbValues from the key which is
 			 * equals to "columnValue" */
 			SQLType sqlType = null;			
@@ -412,7 +420,14 @@ public abstract class AbstractTermMap implements TermMap {
 				sqlType = colId.getSqlType();
 				break;
 			    }
-			}			    
+			}
+			// fallback: check in case-insensitive way (see official test suite executed with H2)
+			for(ColumnIdentifier colId : dbValues.keySet()) {
+			    if(colId.toString().equalsIgnoreCase(columnValue.toString())) {
+				sqlType = colId.getSqlType();
+				break;
+			    }
+			}
 			// Apply cast to string to the SQL data value
 			String result;
 			if (sqlType != null) {
