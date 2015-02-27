@@ -700,13 +700,19 @@ public class R2RMLEngine {
 			if(cId.equals(column)) {
 				log.debug("[R2RMLEngine:applyValueToRow] Value found : \""
 					+ rows.getString(i) +"\" (Type: "+cId.getSqlType()+")");
-				byte[] rawData = rows.getBytes(i);
-				
-				// http://bugs.mysql.com/bug.php?id=65943
-				if(rawData != null &&
-					R2RMLProcessor.getDriverType().equals(DriverType.MysqlDriver) &&
-					cId.getSqlType() == SQLType.CHAR) {
-				    rawData = rows.getString(i).getBytes();
+				byte[] rawData;
+				//H2 bug on string to hex conversion: ERROR 90003
+				if(R2RMLProcessor.getDriverType().equals(DriverType.H2) 
+						&& cId.getSqlType() == SQLType.VARCHAR) {
+					rawData = rows.getString(i).getBytes();
+				} else {
+					rawData = rows.getBytes(i);
+					// http://bugs.mysql.com/bug.php?id=65943
+					if(rawData != null &&
+						R2RMLProcessor.getDriverType().equals(DriverType.MysqlDriver) &&
+						cId.getSqlType() == SQLType.CHAR) {
+					    rawData = rows.getString(i).getBytes();
+					}
 				}
 				result.put(cId, rawData);
 				found = true;
@@ -950,7 +956,7 @@ public class R2RMLEngine {
 				+ triplesMap.getLogicalTable().getEffectiveSQLQuery());
 		ResultSet rs = null;
 		java.sql.Statement s = conn.createStatement(
-				ResultSet.HOLD_CURSORS_OVER_COMMIT, ResultSet.CONCUR_READ_ONLY);
+				ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 		if (triplesMap.getLogicalTable().getEffectiveSQLQuery() != null) {
 
 			s.executeQuery(triplesMap.getLogicalTable().getEffectiveSQLQuery());
@@ -976,7 +982,7 @@ public class R2RMLEngine {
 				+ refObjectMap.getJointSQLQuery());
 		ResultSet rs = null;
 		java.sql.Statement s = conn.createStatement(
-				ResultSet.HOLD_CURSORS_OVER_COMMIT, ResultSet.CONCUR_READ_ONLY);
+				ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 		if (refObjectMap.getJointSQLQuery() != null) {
 			s.executeQuery(refObjectMap.getJointSQLQuery());
 			rs = s.getResultSet();
@@ -999,7 +1005,7 @@ public class R2RMLEngine {
 				+ sqlQuery);
 		ResultSet rs = null;
 		java.sql.Statement s = conn.createStatement(
-				ResultSet.HOLD_CURSORS_OVER_COMMIT, ResultSet.CONCUR_READ_ONLY);
+				ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 		s.executeQuery(sqlQuery);
 		rs = s.getResultSet();
 		if (rs == null)
