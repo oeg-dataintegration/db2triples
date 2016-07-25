@@ -29,6 +29,7 @@ public class DriverType {
     public static DriverType Oracle = new DriverType("oracle.jdbc.driver.OracleDriver");
     public static DriverType MSSQL = new DriverType("net.sourceforge.jtds.jdbc.Driver");
     public static DriverType DB2 = new DriverType("com.ibm.db2.jcc.DB2Driver");
+    public static DriverType TERADATA = new DriverType("com.teradata.jdbc.TeraDriver");
 
 
     private String driverName;

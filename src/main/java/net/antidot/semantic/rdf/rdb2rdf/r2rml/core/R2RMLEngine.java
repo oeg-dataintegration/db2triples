@@ -1023,6 +1023,8 @@ public class R2RMLEngine {
 		if(R2RMLProcessor.getDriverType().equals(DriverType.H2)  
 				|| R2RMLProcessor.getDriverType().equals(DriverType.MSSQL)
 				|| R2RMLProcessor.getDriverType().equals(DriverType.DB2)
+				|| R2RMLProcessor.getDriverType().equals(DriverType.TERADATA)
+				|| R2RMLProcessor.getDriverType().getDriverName().contains("EXADriver")
 				|| R2RMLProcessor.getDriverType().getDriverName().contains("oracle")) {
 			// see e.g. https://groups.google.com/forum/#!topic/h2-database/ZIQMelu7zG8
 			
