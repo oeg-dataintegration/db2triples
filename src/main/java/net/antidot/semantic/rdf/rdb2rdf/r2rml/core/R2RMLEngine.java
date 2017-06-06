@@ -1041,7 +1041,8 @@ public class R2RMLEngine {
 		if(R2RMLProcessor.getDriverType().equals(DriverType.H2)  
 				|| R2RMLProcessor.getDriverType().equals(DriverType.MSSQL)
 				|| R2RMLProcessor.getDriverType().equals(DriverType.DB2)
-				|| R2RMLProcessor.getDriverType().getDriverName().contains("oracle"))
+				|| R2RMLProcessor.getDriverType().getDriverName().contains("oracle")
+				|| R2RMLProcessor.getDriverType().equals(DriverType.HANA))
 			return conn.createStatement();
 		else
 			return conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);

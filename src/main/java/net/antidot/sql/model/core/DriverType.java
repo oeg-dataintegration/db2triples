@@ -30,6 +30,7 @@ public class DriverType {
     public static DriverType MSSQL = new DriverType("net.sourceforge.jtds.jdbc.Driver");
     public static DriverType DB2 = new DriverType("com.ibm.db2.jcc.DB2Driver");
     public static DriverType TERADATA = new DriverType("com.teradata.jdbc.TeraDriver");
+	public static DriverType HANA = new DriverType("com.sap.db.jdbc.Driver");
 
 
     private String driverName;
