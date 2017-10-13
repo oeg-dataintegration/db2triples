@@ -422,6 +422,10 @@ public class R2RMLEngine {
 								+ "in parent row.");
 			if (m >= n) {
 				byte[] value = referencingRows.getBytes(m);
+				if(value != null &&
+						R2RMLProcessor.getDriverType().equals(DriverType.Oracle)) {
+					value = referencingRows.getString(m).getBytes();
+				}
 				result.put(column, value);
 			}
 		}
@@ -458,6 +462,10 @@ public class R2RMLEngine {
 								+ "in child row.");
 			if (m <= n) {
 				byte[] value = referencingRows.getBytes(m);
+				if(value != null &&
+						R2RMLProcessor.getDriverType().equals(DriverType.Oracle)) {
+					value = referencingRows.getString(m).getBytes();
+				}
 				result.put(column, value);
 			}
 		}
@@ -712,6 +720,9 @@ public class R2RMLEngine {
 						R2RMLProcessor.getDriverType().equals(DriverType.MysqlDriver) &&
 						cId.getSqlType() == SQLType.CHAR) {
 					    rawData = rows.getString(i).getBytes();
+					} else if(rawData != null &&
+							R2RMLProcessor.getDriverType().equals(DriverType.Oracle)) {
+						rawData = rows.getString(i).getBytes();
 					}
 				}
 				result.put(cId, rawData);

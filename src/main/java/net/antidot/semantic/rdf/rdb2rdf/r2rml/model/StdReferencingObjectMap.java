@@ -31,6 +31,9 @@ package net.antidot.semantic.rdf.rdb2rdf.r2rml.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor;
+import net.antidot.sql.model.core.DriverType;
+
 public class StdReferencingObjectMap implements ReferencingObjectMap {
 
 	private TriplesMap parentTriplesMap;
@@ -60,11 +63,12 @@ public class StdReferencingObjectMap implements ReferencingObjectMap {
 	}
 
 	public String getJointSQLQuery() {
+		String as = R2RMLProcessor.getDriverType().equals(DriverType.Oracle) ? "" : "AS ";
 		String jointSQLQuery = "SELECT * FROM (" + getChildQuery()
-				+ ") AS child, (" + getParentQuery() + ") AS parent";
+				+ ") " + as + "child, (" + getParentQuery() + ") " + as + "parent";
 		// If the referencing object map has no join condition
 		if (joinConditions.isEmpty())
-			jointSQLQuery = "SELECT * FROM (" + getChildQuery() + ") AS tmp";
+			jointSQLQuery = "SELECT * FROM (" + getChildQuery() + ") " + as + "tmp";
 		// If the referencing object map has at least one join condition
 		else {
 			String whereClause = " WHERE ";
