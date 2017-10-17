@@ -1,2 +1,11 @@
+#Build
 /target
 /bin
+
+# IntelliJ IDEA
+/.idea
+*.iml
+
+# Eclipse
+.classpath
+.project

@@ -1,76 +1,72 @@
-DB2Triples - RDB2RDF Antidot implementation
+DB2Triples modification to support Oracle Databases
 LGPL Licence 2.1
-https://github.com/antidot/db2triples
-http://www.antidot.net
 
-References : W3C Working Drafts 29 May 2012
-- R2RML: RDB to RDF Mapping Language (http://www.w3.org/TR/2012/WD-r2rml-20120529/)
-- A Direct Mapping of Relational Data to RDF (http://www.w3.org/TR/2012/WD-rdb-direct-mapping-20120529/)
+Original project: https://github.com/antidot/db2triples
 
 
-Using the library when building a Maven project
-===============================================
+Building jar
+============
 
-db2triples is available on Maven Central Repository. Update your Maven "pom.xml":
-<dependency>
-  <groupId>net.antidot</groupId>
-  <artifactId>db2triples</artifactId>
-</dependency>
+To build DB2Triples jar, you need to use Maven (http://maven.apache.org/) which will provide to you all the necessary package to compile. The classical way is the command:
 
-Using the jar file directly
-===========================
-
-** Getting the jar **
- 
-All the jars of all versions can be found on the Maven Central Repository:
-http://search.maven.org/#search|ga|1|db2triples
- 
-** Needed dependency **
-
-OpenRdf Sesame > 2.6.x - http://www.openrdf.org/
-Commons-cli > 1.2 - http://commons.apache.org/cli/
-Commons-logging > 1.1.1 - http://commons.apache.org/logging/
-
-** Tested JDBC connectors **
-
-MySQL Connector > 5.1.15 - http://www.mysql.com/downloads/connector/j/ 
-PostgreSQL Connector > 9.1-901 - http://jdbc.postgresql.org/
-
-** Command line **
-
-According your classpath has the links to all the preceding jars and the 
-"db2triples-<version number>.jar", you can launch the lib as follow :
-
-- To call Db2triples :
-net.antidot.semantic.rdf.rdb2rdf.main.Db2triples
-
-Building your own jar
-=====================
-
-To build DB2Triples jar, you need to use Maven (http://maven.apache.org/)
-which will provide to you all the necessary package to compile. The classical
-way is the command:
-
+```
 mvn package
+```
 
-This will provide a file "db2triples-<version number>.jar" in the "target"
-directory according to default configuration of Maven.
+This will provide a file "db2triples-<version number>.jar" in the "target" directory according to default configuration of Maven.
 
 
-Execute the jar
-===============
+Executing jar
+==============
 
-You can also compile and execute directly the jar from Maven build.
-This operation requires to copy dependencies into working folder.
+You can also compile and execute directly the jar from Maven build. This operation requires to copy dependencies into working folder. Use following commands:
 
-Use following commands :
-
+```
 mvn dependency:copy-dependencies
+java -cp target/dependency/*:target/db2triples-<version number>.jar net.antidot.semantic.rdf.rdb2rdf.main.Db2triples
+```
 
-java -cp target/dependency/*.jar:target/db2triples-<version number>.jar <main function>
+When using Windows cmd, the separator for the classpath argument ':' is to be replaced by ';'.
+
+The execution of this command will prompt its usage:
+
+```
+ -b,--database <database_name>        database name
+ -d,--driver <driver>                 Driver to use (default :
+                                      com.mysql.jdbc.Driver )
+ -f                                   Force loading of existing repository
+                                      (without remove data)
+ -i,--base_uri <base_uri>             Base URI (default :
+                                      http://foo.example/DB/)
+ -l,--url <url>                       Database URL (default :
+                                      jdbc:mysql://localhost/)
+ -m,--mode <mode>                     Mandatory conversion mode, 'r2rml'
+                                      for R2RML and 'dm' for Direct
+                                      Mapping
+ -n,--native_output <nativeOutput>    Native store output directory
+ -o,--output <output>                 Output RDF filename (default :
+                                      output)
+ -p,--pass <password>                 Database password
+ -q,--sparql_output <sparql_output>   Transformed graph output file
+                                      (optionnal if sparql option is not
+                                      specified, default : sparql_output
+                                      otherwise)
+ -r,--r2rml_file <r2rml_file>         R2RML config file used to convert
+                                      relationnal database into RDF terms.
+ -s,--sparql <sparql>                 Sparql transform request file
+                                      (optionnal)
+ -t,--format <format>                 RDF syntax output format ('RDFXML',
+                                      'N3', 'NTRIPLES' or 'TURTLE')
+ -u,--user <user_name>                Database user name
+ -v,--version <version>               Version of norm to use (1 = Working
+                                      Draft 20 September 2011 (default), 2
+                                      = Working Draft 23 March 2011)
+```
 
 
-Contacts
-========
+Usage example
+=============
 
-opensource@antidot.net
+```
+java -cp target/dependency/*;target/db2triples-1.0.3-SNAPSHOT.jar net.antidot.semantic.rdf.rdb2rdf.main.Db2triples -m r2rml -r C:/r2rml-file.ttl -d oracle.jdbc.driver.OracleDriver -l jdbc:oracle:thin:@//some.url.and.its:port/ -u USERNAME -p PASSWORD -b database_name
+```
