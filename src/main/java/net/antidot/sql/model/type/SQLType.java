@@ -58,6 +58,7 @@ public enum SQLType {
 	VARCHAR(Types.VARCHAR),
 	STRING(Types.LONGVARCHAR),
 	TINYINT(Types.TINYINT),
+	NVARCHAR(Types.NVARCHAR),
 	
 	
 	// Unsupported
@@ -123,6 +124,7 @@ public enum SQLType {
 		result.add(CHAR);
 		result.add(VARCHAR);
 		result.add(STRING);
+		result.add(NVARCHAR);
 		return result;
 	}
 

@@ -187,6 +187,7 @@ public abstract class SpecificSQLToXMLS {
 		equivalentTypes.put(SQLType.CHAR, XSDType.STRING);
 		equivalentTypes.put(SQLType.VARCHAR, XSDType.STRING);
 		equivalentTypes.put(SQLType.STRING, XSDType.STRING);
+		equivalentTypes.put(SQLType.NVARCHAR, XSDType.STRING);
 		equivalentTypes.put(SQLType.UNKNOWN, XSDType.STRING);
 		
 		
