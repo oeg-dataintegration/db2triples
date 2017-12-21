@@ -1021,7 +1021,8 @@ public class R2RMLEngine {
 	private byte[] getBytes(ResultSet rs, int m) throws SQLException {
 		byte[] value = null;
 		if(R2RMLProcessor.getDriverType().equals(DriverType.H2)  
-				|| R2RMLProcessor.getDriverType().equals(DriverType.MSSQL)
+				|| (R2RMLProcessor.getDriverType().equals(DriverType.MSSQL) || R2RMLProcessor.getDriverType()
+						.getDriverName().equals("com.microsoft.sqlserver.jdbc.SQLServerDriver"))
 				|| R2RMLProcessor.getDriverType().equals(DriverType.DB2)
 				|| R2RMLProcessor.getDriverType().equals(DriverType.TERADATA)
 				|| R2RMLProcessor.getDriverType().getDriverName().contains("EXADriver")
@@ -1039,7 +1040,8 @@ public class R2RMLEngine {
 	
 	private java.sql.Statement createStatement() throws SQLException {
 		if(R2RMLProcessor.getDriverType().equals(DriverType.H2)  
-				|| R2RMLProcessor.getDriverType().equals(DriverType.MSSQL)
+				|| (R2RMLProcessor.getDriverType().equals(DriverType.MSSQL) || R2RMLProcessor.getDriverType()
+						.getDriverName().equals("com.microsoft.sqlserver.jdbc.SQLServerDriver"))
 				|| R2RMLProcessor.getDriverType().equals(DriverType.DB2)
 				|| R2RMLProcessor.getDriverType().getDriverName().contains("oracle")
 				|| R2RMLProcessor.getDriverType().equals(DriverType.HANA))
