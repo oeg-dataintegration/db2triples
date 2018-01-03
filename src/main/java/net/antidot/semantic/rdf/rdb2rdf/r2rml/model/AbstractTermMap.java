@@ -33,6 +33,12 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Literal;
+import org.eclipse.rdf4j.model.Value;
+
 import net.antidot.semantic.rdf.model.tools.RDFDataValidator;
 import net.antidot.semantic.rdf.rdb2rdf.commons.SQLToXMLS;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLStructureException;
@@ -43,15 +49,7 @@ import net.antidot.semantic.xmls.xsd.XSDLexicalTransformation;
 import net.antidot.semantic.xmls.xsd.XSDType;
 import net.antidot.sql.model.db.ColumnIdentifier;
 import net.antidot.sql.model.db.ColumnIdentifierImpl;
-import net.antidot.sql.model.tools.SQLDataValidator;
-import net.antidot.sql.model.tools.SQLToolkit;
 import net.antidot.sql.model.type.SQLType;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.openrdf.model.Literal;
-import org.openrdf.model.URI;
-import org.openrdf.model.Value;
 
 public abstract class AbstractTermMap implements TermMap {
 
@@ -68,8 +66,8 @@ public abstract class AbstractTermMap implements TermMap {
 	private String inverseExpression;
 	private ColumnIdentifier languageColumnValue;
 
-	protected AbstractTermMap(Value constantValue, URI dataType,
-			String languageTag, String stringTemplate, URI termType,
+	protected AbstractTermMap(Value constantValue, IRI dataType,
+			String languageTag, String stringTemplate, IRI termType,
 			String inverseExpression, ColumnIdentifier columnValue, ColumnIdentifier languageColumnValue)
 			throws R2RMLDataError, InvalidR2RMLStructureException,
 			InvalidR2RMLSyntaxException {
@@ -145,7 +143,7 @@ public abstract class AbstractTermMap implements TermMap {
 //							+ "value : " + termType);
 //	}
 
-	protected void setTermType(URI termType, URI dataType)
+	protected void setTermType(IRI termType, IRI dataType)
 			throws InvalidR2RMLSyntaxException, R2RMLDataError,
 			InvalidR2RMLStructureException {
 		if (termType == null) {
@@ -172,7 +170,7 @@ public abstract class AbstractTermMap implements TermMap {
 		}
 	}
 
-	private TermType checkTermType(URI termType)
+	private TermType checkTermType(IRI termType)
 			throws InvalidR2RMLSyntaxException, InvalidR2RMLStructureException,
 			R2RMLDataError {
 		// Its value MUST be an IRI
@@ -264,7 +262,7 @@ public abstract class AbstractTermMap implements TermMap {
 	 * 
 	 * @throws R2RMLDataError
 	 */
-	public void checkDataType(URI dataType) throws R2RMLDataError {
+	public void checkDataType(IRI dataType) throws R2RMLDataError {
 		// Its value MUST be an IRI
 		if (!RDFDataValidator.isValidDatatype(dataType.stringValue()))
 			throw new R2RMLDataError(
@@ -272,7 +270,7 @@ public abstract class AbstractTermMap implements TermMap {
 							+ dataType);
 	}
 
-	public void setDataType(URI dataType) throws R2RMLDataError,
+	public void setDataType(IRI dataType) throws R2RMLDataError,
 			InvalidR2RMLStructureException {
 		if (!isTypeable() && dataType != null)
 			throw new InvalidR2RMLStructureException(

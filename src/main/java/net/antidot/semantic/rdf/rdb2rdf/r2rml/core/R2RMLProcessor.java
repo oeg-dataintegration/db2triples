@@ -40,8 +40,8 @@ import net.antidot.sql.model.core.DriverType;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openrdf.repository.RepositoryException;
-import org.openrdf.rio.RDFParseException;
+import org.eclipse.rdf4j.repository.RepositoryException;
+import org.eclipse.rdf4j.rio.RDFParseException;
 
 public abstract class R2RMLProcessor {
 	

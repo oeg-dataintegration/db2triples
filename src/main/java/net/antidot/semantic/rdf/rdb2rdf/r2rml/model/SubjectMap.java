@@ -28,16 +28,16 @@ package net.antidot.semantic.rdf.rdb2rdf.r2rml.model;
 
 import java.util.Set;
 
-import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLStructureException;
+import org.eclipse.rdf4j.model.IRI;
 
-import org.openrdf.model.URI;
+import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLStructureException;
 
 public interface SubjectMap extends TermMap {
 
 	/**
 	 * A subject map may have one or more class IRIs.
 	 */
-	public Set<URI> getClassIRIs();
+	public Set<IRI> getClassIRIs();
 	
 	/**
 	 * Any subject map may have one or more associated graph maps.

@@ -39,6 +39,16 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.eclipse.rdf4j.model.BNode;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Resource;
+import org.eclipse.rdf4j.model.Statement;
+import org.eclipse.rdf4j.model.Value;
+import org.eclipse.rdf4j.model.ValueFactory;
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
+
 import net.antidot.semantic.rdf.model.impl.sesame.SesameDataSet;
 import net.antidot.semantic.rdf.model.tools.RDFDataValidator;
 import net.antidot.semantic.rdf.rdb2rdf.commons.SQLToXMLS;
@@ -63,16 +73,6 @@ import net.antidot.sql.model.db.ColumnIdentifierImpl;
 import net.antidot.sql.model.tools.SQLToolkit;
 import net.antidot.sql.model.type.SQLType;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.openrdf.model.BNode;
-import org.openrdf.model.Resource;
-import org.openrdf.model.Statement;
-import org.openrdf.model.URI;
-import org.openrdf.model.Value;
-import org.openrdf.model.ValueFactory;
-import org.openrdf.model.impl.ValueFactoryImpl;
-
 public class R2RMLEngine {
 
 	// Log
@@ -93,7 +93,7 @@ public class R2RMLEngine {
 	private Map<TermMap, Map<Integer, Value>> sameGeneratedRDFTerm;
 
 	// Value factory
-	private static ValueFactory vf = new ValueFactoryImpl();
+	private static ValueFactory vf = SimpleValueFactory.getInstance();
 
 	public R2RMLEngine(Connection conn) {
 		super();
@@ -189,7 +189,7 @@ public class R2RMLEngine {
 		rows = constructLogicalTable(triplesMap);
 		meta = extractMetaDatas(rows);
 		// 3. Let classes be the class IRIs of sm
-		Set<URI> classes = sm.getClassIRIs();
+		Set<IRI> classes = sm.getClassIRIs();
 		// 4. Let sgm be the set of graph maps of sm
 		Set<GraphMap> sgm = sm.getGraphMaps();
 		// 5. For each logical table row in rows, apply the following method
@@ -341,10 +341,10 @@ public class R2RMLEngine {
 		// 4. Let predicates be the set of generated RDF terms that result from
 		// applying each of the predicate-object map's predicate maps to
 		// child_row
-		Set<URI> predicates = new HashSet<URI>();
+		Set<IRI> predicates = new HashSet<IRI>();
 		for (PredicateMap pm : predicateObjectMap.getPredicateMaps()) {
 			Map<ColumnIdentifier, byte[]> pmFromRow = applyValueToChildRow(pm, n);
-			URI predicate = (URI) extractValueFromTermMap(pm, pmFromRow,
+			IRI predicate = (IRI) extractValueFromTermMap(pm, pmFromRow,
 					triplesMap);
 			log.debug("[R2RMLEngine:generateRDFTriplesFromReferencingRow] Generate predicate : "
 					+ predicate);
@@ -359,10 +359,10 @@ public class R2RMLEngine {
 				+ object);
 		// 6. Let subject_graphs be the set of generated RDF terms that result
 		// from applying each graph map of sgm to child_row
-		Set<URI> subject_graphs = new HashSet<URI>();
+		Set<IRI> subject_graphs = new HashSet<IRI>();
 		for (GraphMap graphMap : sgm) {
 			Map<ColumnIdentifier, byte[]> sgmFromRow = applyValueToChildRow(graphMap, n);
-			URI subject_graph = (URI) extractValueFromTermMap(graphMap,
+			IRI subject_graph = (IRI) extractValueFromTermMap(graphMap,
 					sgmFromRow, triplesMap);
 			log.debug("[R2RMLEngine:generateRDFTriplesFromReferencingRow] Generate subject graph : "
 					+ subject_graph);
@@ -370,10 +370,10 @@ public class R2RMLEngine {
 		}
 		// 7. Let predicate-object_graphs be the set of generated RDF terms
 		// that result from applying each graph map in pogm to child_row
-		Set<URI> predicate_object_graphs = new HashSet<URI>();
+		Set<IRI> predicate_object_graphs = new HashSet<IRI>();
 		for (GraphMap graphMap : pogm) {
 			Map<ColumnIdentifier, byte[]> pogmFromRow = applyValueToChildRow(graphMap, n);
-			URI predicate_object_graph = (URI) extractValueFromTermMap(
+			IRI predicate_object_graph = (IRI) extractValueFromTermMap(
 					graphMap, pogmFromRow, triplesMap);
 			log.debug("[R2RMLEngine:generateRDFTriplesFromReferencingRow] Generate predicate object graph : "
 					+ predicate_object_graph);
@@ -381,10 +381,11 @@ public class R2RMLEngine {
 		}
 		// 8. For each predicate in predicates, add triples to the output
 		// dataset
-		for (URI predicate : predicates) {
+		for (IRI predicate : predicates)
+		{
 			// If neither sgm nor pogm has any graph maps: rr:defaultGraph;
 			// otherwise: union of subject_graphs and predicate-object_graphs
-			Set<URI> targetGraphs = new HashSet<URI>();
+			Set<IRI> targetGraphs = new HashSet<IRI>();
 			targetGraphs.addAll(subject_graphs);
 			targetGraphs.addAll(predicate_object_graphs);
 			addTriplesToTheOutputDataset(sesameDataSet, subject, predicate,
@@ -473,7 +474,7 @@ public class R2RMLEngine {
 	}
 
 	private void generateRDFTriplesFromRow(SesameDataSet sesameDataSet,
-			TriplesMap triplesMap, SubjectMap sm, Set<URI> classes,
+			TriplesMap triplesMap, SubjectMap sm, Set<IRI> classes,
 			Set<GraphMap> sgm) throws SQLException, R2RMLDataError,
 			UnsupportedEncodingException {
 
@@ -491,18 +492,19 @@ public class R2RMLEngine {
 
 		// 2. Let subject_graphs be the set of the generated RDF terms
 		// that result from applying each term map in sgm to row
-		Set<URI> subject_graphs = new HashSet<URI>();
+		Set<IRI> subject_graphs = new HashSet<IRI>();
 		for (GraphMap graphMap : sgm) {
 			Map<ColumnIdentifier, byte[]> sgmFromRow = applyValueToRow(graphMap);
-			URI subject_graph = (URI) extractValueFromTermMap(graphMap,
+			IRI subject_graph = (IRI) extractValueFromTermMap(graphMap,
 					sgmFromRow, triplesMap);
 			log.debug("[R2RMLEngine:genereateRDFTriplesFromRow] Generate subject graph : "
 					+ subject_graph);
 			subject_graphs.add(subject_graph);
 		}
 		// 3. For each classIRI in classes, add triples to the output dataset
-		for (URI classIRI : sm.getClassIRIs()) {
-			URI predicate = vf.createURI(R2RMLVocabulary.RDF_NAMESPACE
+		for (IRI classIRI : sm.getClassIRIs())
+		{
+			IRI predicate = vf.createIRI(R2RMLVocabulary.RDF_NAMESPACE
 					+ R2RMLTerm.TYPE);
 			addTriplesToTheOutputDataset(sesameDataSet, subject, predicate,
 					classIRI, subject_graphs);
@@ -575,13 +577,13 @@ public class R2RMLEngine {
 
 	private void generateRDFTriplesFromPredicateObjectMap(
 			SesameDataSet sesameDataSet, TriplesMap triplesMap,
-			Resource subject, Set<URI> subjectGraphs,
+			Resource subject, Set<IRI> subjectGraphs,
 			PredicateObjectMap predicateObjectMap) throws SQLException,
 			R2RMLDataError, UnsupportedEncodingException {
 		// 1. Let predicates be the set of generated RDF terms that result
 		// from applying each of the predicate-object map's predicate maps to
 		// row
-		Set<URI> predicates = new HashSet<URI>();
+		Set<IRI> predicates = new HashSet<IRI>();
 		for (PredicateMap pm : predicateObjectMap.getPredicateMaps()) {
 			Map<ColumnIdentifier, byte[]> pmFromRow = applyValueToRow(pm);
 			boolean nullFound = false;
@@ -593,7 +595,7 @@ public class R2RMLEngine {
 				}
 			if (nullFound)
 				continue;
-			URI predicate = (URI) extractValueFromTermMap(pm, pmFromRow,
+			IRI predicate = (IRI) extractValueFromTermMap(pm, pmFromRow,
 					triplesMap);
 			log.debug("[R2RMLEngine:genereateRDFTriplesFromRow] Generate predicate : "
 					+ predicate);
@@ -624,13 +626,13 @@ public class R2RMLEngine {
 		Set<GraphMap> pogm = predicateObjectMap.getGraphMaps();
 		// 4. Let predicate-object_graphs be the set of generated RDF
 		// terms that result from applying each graph map in pogm to row
-		Set<URI> predicate_object_graphs = new HashSet<URI>();
+		Set<IRI> predicate_object_graphs = new HashSet<IRI>();
 		// 4+. Add graph of subject graphs set
 		if (subjectGraphs != null)
 			predicate_object_graphs.addAll(subjectGraphs);
 		for (GraphMap graphMap : pogm) {
 			Map<ColumnIdentifier, byte[]> pogmFromRow = applyValueToRow(graphMap);
-			URI predicate_object_graph = (URI) extractValueFromTermMap(
+			IRI predicate_object_graph = (IRI) extractValueFromTermMap(
 					graphMap, pogmFromRow, triplesMap);
 			log.debug("[R2RMLEngine:genereateRDFTriplesFromRow] Generate predicate object graph : "
 					+ predicate_object_graph);
@@ -640,7 +642,8 @@ public class R2RMLEngine {
 		// is a member
 		// of predicates and object is a member of objects,
 		// add triples to the output dataset
-		for (URI predicate : predicates) {
+		for (IRI predicate : predicates)
+		{
 			for (Value object : objects) {
 				addTriplesToTheOutputDataset(sesameDataSet, subject, predicate,
 						object, predicate_object_graphs);
@@ -660,7 +663,8 @@ public class R2RMLEngine {
 	 * @param targetGraphs
 	 */
 	private void addTriplesToTheOutputDataset(SesameDataSet sesameDataSet,
-			Resource subject, URI predicate, Value object, Set<URI> targetGraphs) {
+			Resource subject, IRI predicate, Value object, Set<IRI> targetGraphs)
+	{
 
 		// 1. If Subject, Predicate or Object is empty, then abort these steps.
 		if (subject == null || predicate == null || object == null)
@@ -673,7 +677,8 @@ public class R2RMLEngine {
 			sesameDataSet.addStatement(triple);
 			log.debug("[R2RMLEngine:addStatement] Added new statement : " + triple);
 		}
-		for (URI targetGraph : targetGraphs) {
+		for (IRI targetGraph : targetGraphs)
+		{
 			if (targetGraph.stringValue().equals(
 					R2RMLVocabulary.R2RML_NAMESPACE + R2RMLTerm.DEFAULT_GRAPH)) {
 				// 3. If the set of target graphs includes rr:defaultGraph,
@@ -761,7 +766,7 @@ public class R2RMLEngine {
 		switch (termMap.getTermType()) {
 		case IRI:
 			// 2. Otherwise, if the term map's term type is rr:IRI
-			URI iri = generateIRITermType(termMap, value);
+				IRI iri = generateIRITermType(termMap, value);
 			log.debug("[R2RMLEngine:generateRDFTerm] Generated IRI RDF Term : "
 					+ iri);
 			return (Value) iri;
@@ -829,8 +834,7 @@ public class R2RMLEngine {
 			// value =
 			// XSDLexicalTransformation.extractNaturalRDFFormFrom(termMap.getDataType(),
 			// value);
-			URI datatype = vf.createURI(termMap.getDataType()
-					.getAbsoluteStringURI());
+			IRI datatype = vf.createIRI(termMap.getDataType().getAbsoluteStringURI());
 			return vf.createLiteral(value, datatype);
 
 		} else {
@@ -855,32 +859,34 @@ public class R2RMLEngine {
 		}
 	}
 
-	private URI generateIRITermType(TermMap termMap, String value)
+	private IRI generateIRITermType(TermMap termMap, String value)
 			throws R2RMLDataError, SQLException {
 		// 1. Let value be the natural RDF lexical form corresponding to value.
 		// 2. If value is a valid absolute IRI [RFC3987], then return an IRI
 		// generated from value.
 
-		if (RDFDataValidator.isValidURI(value)) {
-			URI result = vf.createURI(value);
+		if (RDFDataValidator.isValidURI(value))
+		{
+			IRI result = vf.createIRI(value);
 			log.debug("[R2RMLEngine:generateIRITermType] Valid generated IRI : "
 					+ value);
 			return result;
 		} else {
 			String prependedValue = baseIRI + value;
-			if (RDFDataValidator.isValidURI(prependedValue)) {
+			if (RDFDataValidator.isValidURI(prependedValue))
+			{
 				// Otherwise, prepend value with the base IRI. If the result is
 				// a valid absolute IRI [RFC3987], then return an IRI generated
 				// from the result.
 				log.debug("[R2RMLEngine:generateIRITermType] Valid generated IRI : "
 						+ prependedValue);
-				URI result = vf.createURI(prependedValue);
+				IRI result = vf.createIRI(prependedValue);
 				return result;
 			} else {
 				// 4. Otherwise, raise a data error.
 				throw new R2RMLDataError(
-						"[R2RMLEngine:generateIRITermType] This relative URI "
-								+ value + " or this absolute URI " + baseIRI
+						"[R2RMLEngine:generateIRITermType] This relative IRI " + value + " or this absolute IRI "
+								+ baseIRI
 								+ value + " is not valid.");
 			}
 		}
@@ -942,7 +948,7 @@ public class R2RMLEngine {
 			// typed literal whose datatype IRI is the IRI indicated in the
 			// RDF
 			return vf.createLiteral(value,
-					vf.createURI(xsdType.getAbsoluteStringURI()));
+					vf.createIRI(xsdType.getAbsoluteStringURI()));
 		} else {
 			// 4. Otherwise, the result is a plain literal without language
 			// tag whose lexical form is the SQL data value CAST TO STRING.

@@ -31,24 +31,24 @@ package net.antidot.semantic.rdf.rdb2rdf.r2rml.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Value;
+
 import net.antidot.semantic.rdf.model.tools.RDFDataValidator;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLStructureException;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLSyntaxException;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.R2RMLDataError;
 import net.antidot.sql.model.db.ColumnIdentifier;
 
-import org.openrdf.model.URI;
-import org.openrdf.model.Value;
-
 public class StdSubjectMap extends AbstractTermMap implements SubjectMap {
 
-	private Set<URI> classIRIs;
+	private Set<IRI> classIRIs;
 	private HashSet<GraphMap> graphMaps;
 	protected TriplesMap ownTriplesMap;
 
 	public StdSubjectMap(TriplesMap ownTriplesMap, Value constantValue,
-			String stringTemplate, URI termType, String inverseExpression,
-			ColumnIdentifier columnValue, Set<URI> classIRIs, Set<GraphMap> graphMaps)
+			String stringTemplate, IRI termType, String inverseExpression,
+			ColumnIdentifier columnValue, Set<IRI> classIRIs, Set<GraphMap> graphMaps)
 			throws R2RMLDataError, InvalidR2RMLStructureException,
 			InvalidR2RMLSyntaxException {
 		// No Literal term type
@@ -81,17 +81,17 @@ public class StdSubjectMap extends AbstractTermMap implements SubjectMap {
 			this.graphMaps.addAll(graphMaps);
 	}
 
-	private void setClassIRIs(Set<URI> classIRIs2) throws R2RMLDataError {
-		this.classIRIs = new HashSet<URI>();
+	private void setClassIRIs(Set<IRI> classIRIs2) throws R2RMLDataError {
+		this.classIRIs = new HashSet<IRI>();
 		if (classIRIs2 != null) {
 			checkClassIRIs(classIRIs);
 			classIRIs.addAll(classIRIs2);
 		}
 	}
 
-	private void checkClassIRIs(Set<URI> classIRIs2) throws R2RMLDataError {
+	private void checkClassIRIs(Set<IRI> classIRIs2) throws R2RMLDataError {
 		// The values of the rr:class property must be IRIs.
-		for (URI classIRI : classIRIs) {
+		for (IRI classIRI : classIRIs) {
 			if (!RDFDataValidator.isValidURI(classIRI.stringValue()))
 				throw new R2RMLDataError(
 						"[AbstractTermMap:checkClassIRIs] Not a valid URI : "
@@ -99,7 +99,7 @@ public class StdSubjectMap extends AbstractTermMap implements SubjectMap {
 		}
 	}
 
-	public Set<URI> getClassIRIs() {
+	public Set<IRI> getClassIRIs() {
 		return classIRIs;
 	}
 
@@ -133,7 +133,7 @@ public class StdSubjectMap extends AbstractTermMap implements SubjectMap {
 
 	public String toString() {
 		String result = super.toString() + " [StdSubjectMap : classIRIs = [";
-		for (URI uri : classIRIs)
+		for (IRI uri : classIRIs)
 			result += uri.getLocalName() + ",";
 		result += "], graphMaps = [";
 		for (GraphMap graphMap : graphMaps)

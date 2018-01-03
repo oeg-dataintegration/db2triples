@@ -38,6 +38,17 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.eclipse.rdf4j.model.BNode;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Literal;
+import org.eclipse.rdf4j.model.Resource;
+import org.eclipse.rdf4j.model.Statement;
+import org.eclipse.rdf4j.model.Value;
+import org.eclipse.rdf4j.model.ValueFactory;
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
+
 import net.antidot.semantic.rdf.model.impl.sesame.SemiStatement;
 import net.antidot.semantic.rdf.model.tools.RDFDataValidator;
 import net.antidot.semantic.rdf.rdb2rdf.commons.RDFPrefixes;
@@ -54,17 +65,6 @@ import net.antidot.sql.model.db.StdHeader;
 import net.antidot.sql.model.db.StdTable;
 import net.antidot.sql.model.db.Tuple;
 import net.antidot.sql.model.type.SQLSpecificType;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.openrdf.model.BNode;
-import org.openrdf.model.Literal;
-import org.openrdf.model.Resource;
-import org.openrdf.model.Statement;
-import org.openrdf.model.URI;
-import org.openrdf.model.Value;
-import org.openrdf.model.ValueFactory;
-import org.openrdf.model.impl.ValueFactoryImpl;
 
 
 public class DirectMappingEngineWD20110324 implements DirectMappingEngine {
@@ -99,7 +99,7 @@ public class DirectMappingEngineWD20110324 implements DirectMappingEngine {
 		header = null;
 		primaryKeys = new ArrayList<CandidateKey>();
 		foreignKeys = new HashSet<ForeignKey>();
-		vf = new ValueFactoryImpl();
+		vf = SimpleValueFactory.getInstance();
 	}
 
 	/*
@@ -506,7 +506,7 @@ public class DirectMappingEngineWD20110324 implements DirectMappingEngine {
 		if (primaryKey != null) {
 			// Unique Node IRI
 			String stringURI = generateUniqNodeIRI(r, t, primaryKey, baseURI);
-			URI uri = vf.createURI(baseURI, stringURI);
+			IRI uri = vf.createIRI(baseURI, stringURI);
 			return uri;
 		} else {
 			// Blank node
@@ -526,7 +526,7 @@ public class DirectMappingEngineWD20110324 implements DirectMappingEngine {
 		if (primaryKey != null) {
 			// Unique Node IRI
 			String stringURI = generateUniqNodeIRI(referencedRow, t, primaryKey, baseURI);
-			URI uri = vf.createURI(baseURI, stringURI);
+			IRI uri = vf.createIRI(baseURI, stringURI);
 			// URIs.put(r, uri);
 			return uri;
 		} else {
@@ -615,7 +615,7 @@ public class DirectMappingEngineWD20110324 implements DirectMappingEngine {
 		HashSet<SemiStatement> result = new HashSet<SemiStatement>();
 		ArrayList<String> columnNames = new ArrayList<String>();
 		columnNames.addAll(fk.getColumnNames());
-		URI p = convertCol(row, columnNames, baseURI);
+		IRI p = convertCol(row, columnNames, baseURI);
 
 		// Get URI of target table
 		Resource o = phi(referencedRow.getParentBody().getParentTable(), row,
@@ -703,8 +703,8 @@ public class DirectMappingEngineWD20110324 implements DirectMappingEngine {
 	 */
 	private Statement convertType(Resource s, String baseURI, StdTable currentTable) {
 		// Table Triples
-		URI typePredicate = vf.createURI(RDFPrefixes.prefix.get("rdf"), "type");
-		URI typeObject = vf.createURI(baseURI, currentTable.getTableName());
+		IRI typePredicate = vf.createIRI(RDFPrefixes.prefix.get("rdf"), "type");
+		IRI typeObject = vf.createIRI(baseURI, currentTable.getTableName());
 		Statement typeTriple = vf.createStatement(s, typePredicate, typeObject);
 		return typeTriple;
 	}
@@ -725,7 +725,7 @@ public class DirectMappingEngineWD20110324 implements DirectMappingEngine {
 		Literal l = null;
 		ArrayList<String> columnNames = new ArrayList<String>();
 		columnNames.add(columnName);
-		URI p = convertCol(r, columnNames, baseURI);
+		IRI p = convertCol(r, columnNames, baseURI);
 		final byte[] bs = r.getValues().get(columnName);
 		String v = new String(bs);
 		String d = header.getDatatypes().get(columnName);
@@ -762,7 +762,7 @@ public class DirectMappingEngineWD20110324 implements DirectMappingEngine {
 			l = vf.createLiteral(v);
 		} else {
 
-			URI datatype_iri = convertDatatype(d);
+			IRI datatype_iri = convertDatatype(d);
 			if (datatype_iri == null) {
 				l = vf.createLiteral(v);
 			} else {
@@ -779,7 +779,7 @@ public class DirectMappingEngineWD20110324 implements DirectMappingEngine {
 	 * 
 	 * @throws UnsupportedEncodingException
 	 */
-	private URI convertCol(Row row, ArrayList<String> columnNames,
+	private IRI convertCol(Row row, ArrayList<String> columnNames,
 			String baseURI) throws UnsupportedEncodingException {
 		String label = URLEncoder.encode(row.getParentBody().getParentTable()
 				.getTableName(), DirectMappingEngine.encoding)
@@ -798,21 +798,21 @@ public class DirectMappingEngineWD20110324 implements DirectMappingEngine {
 				log.warn("[DirectMapper:convertCol] This URI has been converted into : " + baseURI + label);
 		}
 		// Create value factory which build URI
-		return vf.createURI(baseURI, label);
+		return vf.createIRI(baseURI, label);
 	}
 
 	/*
 	 * Denotational semantics function : convert datatype from SQL
 	 * into xsd datatype.
 	 */
-	private URI convertDatatype(String datatype) {
+	private IRI convertDatatype(String datatype) {
 		String upDatatype = datatype.toUpperCase();
 		if (!SpecificSQLToXMLS.isValidSQLSpecificDatatype(upDatatype))	
 	    log.debug("[DirectMapper:convertDatatype] Unknown datatype : "
 						+ datatype);
 		String xsdDatatype = SpecificSQLToXMLS.getEquivalentSpecificType(upDatatype)
 				.toString();
-		return vf.createURI(RDFPrefixes.prefix.get("xsd"), xsdDatatype);
+		return vf.createIRI(RDFPrefixes.prefix.get("xsd"), xsdDatatype);
 	}
 
 	/*

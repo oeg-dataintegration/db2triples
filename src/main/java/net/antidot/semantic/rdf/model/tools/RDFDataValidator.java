@@ -32,8 +32,8 @@ import java.util.MissingResourceException;
 
 import net.antidot.semantic.xmls.xsd.XSDType;
 
-import org.openrdf.model.ValueFactory;
-import org.openrdf.model.impl.ValueFactoryImpl;
+import org.eclipse.rdf4j.model.ValueFactory;
+import org.eclipse.rdf4j.model.impl.ValueFactoryImpl;
 
 public abstract class RDFDataValidator {
 	

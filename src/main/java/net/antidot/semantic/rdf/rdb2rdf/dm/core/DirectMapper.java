@@ -41,7 +41,7 @@ import net.antidot.sql.model.db.Tuple;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openrdf.model.Statement;
+import org.eclipse.rdf4j.model.Statement;
 
 
 public abstract class DirectMapper extends Thread {

@@ -46,30 +46,30 @@ import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openrdf.model.BNode;
-import org.openrdf.model.Resource;
-import org.openrdf.model.Statement;
-import org.openrdf.model.URI;
-import org.openrdf.model.Value;
-import org.openrdf.model.ValueFactory;
-import org.openrdf.model.vocabulary.RDF;
-import org.openrdf.query.BindingSet;
-import org.openrdf.query.GraphQuery;
-import org.openrdf.query.TupleQuery;
-import org.openrdf.query.TupleQueryResult;
-import org.openrdf.repository.Repository;
-import org.openrdf.repository.RepositoryConnection;
-import org.openrdf.repository.RepositoryException;
-import org.openrdf.repository.RepositoryResult;
-import org.openrdf.repository.http.HTTPRepository;
-import org.openrdf.repository.sail.SailRepository;
-import org.openrdf.rio.RDFFormat;
-import org.openrdf.rio.RDFParseException;
-import org.openrdf.rio.RDFWriter;
-import org.openrdf.rio.Rio;
-import org.openrdf.sail.inferencer.fc.ForwardChainingRDFSInferencer;
-import org.openrdf.sail.memory.MemoryStore;
-import org.openrdf.sail.nativerdf.NativeStore;
+import org.eclipse.rdf4j.model.BNode;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Resource;
+import org.eclipse.rdf4j.model.Statement;
+import org.eclipse.rdf4j.model.Value;
+import org.eclipse.rdf4j.model.ValueFactory;
+import org.eclipse.rdf4j.model.vocabulary.RDF;
+import org.eclipse.rdf4j.query.BindingSet;
+import org.eclipse.rdf4j.query.GraphQuery;
+import org.eclipse.rdf4j.query.TupleQuery;
+import org.eclipse.rdf4j.query.TupleQueryResult;
+import org.eclipse.rdf4j.repository.Repository;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
+import org.eclipse.rdf4j.repository.RepositoryResult;
+import org.eclipse.rdf4j.repository.http.HTTPRepository;
+import org.eclipse.rdf4j.repository.sail.SailRepository;
+import org.eclipse.rdf4j.rio.RDFFormat;
+import org.eclipse.rdf4j.rio.RDFParseException;
+import org.eclipse.rdf4j.rio.RDFWriter;
+import org.eclipse.rdf4j.rio.Rio;
+import org.eclipse.rdf4j.sail.inferencer.fc.ForwardChainingRDFSInferencer;
+import org.eclipse.rdf4j.sail.memory.MemoryStore;
+import org.eclipse.rdf4j.sail.nativerdf.NativeStore;
 
 public class SesameDataSet {
 
@@ -189,7 +189,8 @@ public class SesameDataSet {
 	 *            uri representing the type (generally xsd)
 	 * @return
 	 */
-	public org.openrdf.model.Literal Literal(String s, URI typeuri) {
+	public org.eclipse.rdf4j.model.Literal Literal(String s, IRI typeuri)
+	{
 		try {
 			RepositoryConnection con = currentRepository.getConnection();
 			try {
@@ -215,7 +216,8 @@ public class SesameDataSet {
 	 *            the literal
 	 * @return
 	 */
-	public org.openrdf.model.Literal Literal(String s) {
+	public org.eclipse.rdf4j.model.Literal Literal(String s)
+	{
 		return Literal(s, null);
 	}
 
@@ -225,12 +227,12 @@ public class SesameDataSet {
 	 * @param uri
 	 * @return
 	 */
-	public URI URIref(String uri) {
+	public IRI URIref(String uri) {
 		try {
 			RepositoryConnection con = currentRepository.getConnection();
 			try {
 				ValueFactory vf = con.getValueFactory();
-				return vf.createURI(uri);
+				return vf.createIRI(uri);
 			} finally {
 				con.close();
 			}
@@ -272,7 +274,7 @@ public class SesameDataSet {
 	 * @param contexts
 	 *            varArgs context objects (use default graph if null)
 	 */
-	public void add(Resource s, URI p, Value o, Resource... contexts) {
+	public void add(Resource s, IRI p, Value o, Resource... contexts) {
 		if (log.isDebugEnabled())
 			log.debug("[SesameDataSet:add] Add triple (" + s.stringValue()
 					+ ", " + p.stringValue() + ", " + o.stringValue() + ").");
@@ -294,7 +296,7 @@ public class SesameDataSet {
 		}
 	}
 
-	public void remove(Resource s, URI p, Value o, Resource... context) {
+	public void remove(Resource s, IRI p, Value o, Resource... context) {
 		try {
 			RepositoryConnection con = currentRepository.getConnection();
 			try {
@@ -471,7 +473,7 @@ public class SesameDataSet {
 	 *            varArgs contexts (use default graph if null)
 	 * @return serialized graph of results
 	 */
-	public List<Statement> tuplePattern(Resource s, URI p, Value o,
+	public List<Statement> tuplePattern(Resource s, IRI p, Value o,
 			Resource... contexts) {
 		try {
 			RepositoryConnection con = currentRepository.getConnection();
@@ -506,7 +508,7 @@ public class SesameDataSet {
 			RepositoryConnection con = currentRepository.getConnection();
 			try {
 				GraphQuery query = con.prepareGraphQuery(
-						org.openrdf.query.QueryLanguage.SPARQL, qs);
+						org.eclipse.rdf4j.query.QueryLanguage.SPARQL, qs);
 				StringWriter stringout = new StringWriter();
 				RDFWriter w = Rio.createWriter(format, stringout);
 				query.evaluate(w);
@@ -532,7 +534,7 @@ public class SesameDataSet {
 			RepositoryConnection con = currentRepository.getConnection();
 			try {
 				TupleQuery query = con.prepareTupleQuery(
-						org.openrdf.query.QueryLanguage.SPARQL, qs);
+						org.eclipse.rdf4j.query.QueryLanguage.SPARQL, qs);
 				TupleQueryResult qres = query.evaluate();
 				ArrayList<HashMap<String, Value>> reslist = new ArrayList<HashMap<String, Value>>();
 				while (qres.hasNext()) {

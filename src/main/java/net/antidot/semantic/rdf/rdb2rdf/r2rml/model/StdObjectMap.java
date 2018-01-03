@@ -27,22 +27,22 @@ package net.antidot.semantic.rdf.rdb2rdf.r2rml.model;
 
 import java.util.HashSet;
 
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Value;
+
 import net.antidot.semantic.rdf.model.tools.RDFDataValidator;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLStructureException;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLSyntaxException;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.R2RMLDataError;
 import net.antidot.sql.model.db.ColumnIdentifier;
 
-import org.openrdf.model.URI;
-import org.openrdf.model.Value;
-
 public class StdObjectMap extends AbstractTermMap implements TermMap, ObjectMap {
 
 	private PredicateObjectMap predicateObjectMap;
 
 	public StdObjectMap(PredicateObjectMap predicateObjectMap,
-			Value constantValue, URI dataType, String languageTag,
-			String stringTemplate, URI termType, String inverseExpression,
+			Value constantValue, IRI dataType, String languageTag, String stringTemplate, IRI termType,
+			String inverseExpression,
 			ColumnIdentifier columnValue, ColumnIdentifier languageColumnValue) throws R2RMLDataError,
 			InvalidR2RMLStructureException, InvalidR2RMLSyntaxException {
 		super(constantValue, dataType, languageTag, stringTemplate, termType,

@@ -37,7 +37,7 @@ import net.antidot.semantic.xmls.xsd.XSDLexicalTransformation;
 import net.antidot.semantic.xmls.xsd.XSDType;
 import net.antidot.sql.model.db.ColumnIdentifier;
 
-import org.openrdf.model.Value;
+import org.eclipse.rdf4j.model.Value;
 
 public interface TermMap {
 
