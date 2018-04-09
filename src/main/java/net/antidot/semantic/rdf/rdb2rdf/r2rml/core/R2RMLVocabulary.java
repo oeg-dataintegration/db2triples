@@ -66,6 +66,7 @@ public class R2RMLVocabulary {
 		INVERSE_EXPRESSION("inverseExpression"),
 		JOIN_CONDITION("joinCondition"),
 		LANGUAGE("language"),
+		LANGUAGE_COLUMN("languageColumn"),
 		LOGICAL_TABLE("logicalTable"),
 		OBJECT("object"),
 		OBJECT_MAP("objectMap"),

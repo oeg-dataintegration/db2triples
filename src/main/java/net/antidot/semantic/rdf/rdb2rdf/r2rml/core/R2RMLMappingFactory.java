@@ -543,9 +543,12 @@ public abstract class R2RMLMappingFactory {
 		String columnValueStr = extractLiteralFromTermMap(r2rmlMappingGraph,
 				object, R2RMLTerm.COLUMN);
 		ColumnIdentifier columnValue= ColumnIdentifierImpl.buildFromR2RMLConfigFile(columnValueStr);
+		String languageColumnValueStr = extractLiteralFromTermMap(r2rmlMappingGraph,
+				object, R2RMLTerm.LANGUAGE_COLUMN);
+		ColumnIdentifier languageColumnValue= ColumnIdentifierImpl.buildFromR2RMLConfigFile(languageColumnValueStr);
 		StdObjectMap result = new StdObjectMap(null, constantValue, dataType,
 				languageTag, stringTemplate, termType, inverseExpression,
-				columnValue);
+				columnValue, languageColumnValue);
 		log.debug("[R2RMLMappingFactory:extractObjectMap] Extract object map done.");
 		return result;
 	}
