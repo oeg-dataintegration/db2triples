@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.antidot</groupId>
   <artifactId>db2triples</artifactId>
-  <version>1.0.3-SNAPSHOT</version>
+  <version>1.1.0</version>
   <name>DB2Triples</name>
   <description>RDB2RDF Implementation from Antidot</description>
   <packaging>jar</packaging>
@@ -106,6 +106,14 @@
   		<email>lmazuel@antidot.net</email>
   		<organization>Antidot</organization>
   		<organizationUrl>http://www.antidot.net</organizationUrl>
+  	</contributor>
+    <contributor>
+  		<name>Santiago Gonzalez Toral</name>
+  		<email>hernangt12re3@gmail.com</email>
+  	</contributor>
+    <contributor>
+  		<name>Guillermo Esteban Pérez</name>
+  		<email>ggestebanp@gmail.com</email>
   	</contributor>
   </contributors>
   <organization>

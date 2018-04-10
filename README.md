@@ -1,8 +1,12 @@
-DB2Triples modification to support Oracle Databases
+This DB2Triples modification (a) support Oracle Databases and (b) implements the language column feature.
+
+The language column feature adds the property **rr:languageColumn** to the [R2RML language](https://www.w3.org/TR/r2rml/). This property was first created by [Vladimir Alexiev](https://ontotext.com/author/vladimir/) in his [Perl implementation](https://metacpan.org/pod/RDF::RDB2RDF::R2RML#Language). Although the property was using other namespace, I maintained the R2RML namespace in db2triples.
+
+[H2 Database support](https://github.com/gesteban/db2triples/commit/3d3b20cc7210ea2e24cdde2c74f85b67a4d91abf) by @santteegt (https://santteegt.github.io/)
+
+[Original project](https://github.com/antidot/db2triples) by @antidot (http://www.antidot.net/)
+
 LGPL Licence 2.1
-
-Original project: https://github.com/antidot/db2triples
-
 
 Building jar
 ============
