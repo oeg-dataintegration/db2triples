@@ -43,10 +43,10 @@ public class StdObjectMap extends AbstractTermMap implements TermMap, ObjectMap 
 	public StdObjectMap(PredicateObjectMap predicateObjectMap,
 			Value constantValue, URI dataType, String languageTag,
 			String stringTemplate, URI termType, String inverseExpression,
-			ColumnIdentifier columnValue) throws R2RMLDataError,
+			ColumnIdentifier columnValue, ColumnIdentifier languageColumnValue) throws R2RMLDataError,
 			InvalidR2RMLStructureException, InvalidR2RMLSyntaxException {
 		super(constantValue, dataType, languageTag, stringTemplate, termType,
-				inverseExpression, columnValue);
+				inverseExpression, columnValue, languageColumnValue);
 		setPredicateObjectMap(predicateObjectMap);
 	}
 

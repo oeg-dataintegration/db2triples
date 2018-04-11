@@ -66,10 +66,11 @@ public abstract class AbstractTermMap implements TermMap {
 	private String stringTemplate;
 	private ColumnIdentifier columnValue;
 	private String inverseExpression;
+	private ColumnIdentifier languageColumnValue;
 
 	protected AbstractTermMap(Value constantValue, URI dataType,
 			String languageTag, String stringTemplate, URI termType,
-			String inverseExpression, ColumnIdentifier columnValue)
+			String inverseExpression, ColumnIdentifier columnValue, ColumnIdentifier languageColumnValue)
 			throws R2RMLDataError, InvalidR2RMLStructureException,
 			InvalidR2RMLSyntaxException {
 
@@ -79,6 +80,7 @@ public abstract class AbstractTermMap implements TermMap {
 		setStringTemplate(stringTemplate);
 		setTermType(termType, dataType);
 		setDataType(dataType);
+		setLanguageColumnValue(languageColumnValue);
 
 		setInversionExpression(inverseExpression);
 		checkGlobalConsistency();
@@ -245,6 +247,10 @@ public abstract class AbstractTermMap implements TermMap {
 	protected abstract void checkConstantValue(Value constantValue)
 			throws R2RMLDataError;
 
+	private void setLanguageColumnValue(ColumnIdentifier languageColumnValue) {
+		this.languageColumnValue = languageColumnValue;
+	}
+
 	public void setConstantValue(Value constantValue) throws R2RMLDataError,
 			InvalidR2RMLStructureException {
 		// Check if constant value is valid
@@ -335,6 +341,9 @@ public abstract class AbstractTermMap implements TermMap {
 
 		default:
 			break;
+		}
+		if (languageColumnValue != null) {
+			referencedColumns.add(languageColumnValue);
 		}
 		log.debug("[AbstractTermMap:getReferencedColumns] ReferencedColumns are now : "
 			+ referencedColumns);		
@@ -430,5 +439,44 @@ public abstract class AbstractTermMap implements TermMap {
 		default:
 			return null;
 		}
+	}
+
+	public String getLanguageValue(Map<ColumnIdentifier, byte[]> dbValues, ResultSetMetaData dbTypes)
+			throws R2RMLDataError, SQLException, UnsupportedEncodingException {
+
+		if (languageColumnValue == null) {
+			return null;
+		}
+
+		if (dbValues.keySet().isEmpty())
+			throw new IllegalStateException(
+					"[AbstractTermMap:getLanguageValue] impossible to extract from an empty database value set.");
+
+		byte[] bytesResult = dbValues.get(languageColumnValue);
+			/* Extract the SQLType in dbValues from the key which is
+			 * equals to "columnValue" */
+		SQLType sqlType = null;
+		for(ColumnIdentifier colId : dbValues.keySet()) {
+			if(colId.equals(columnValue)) {
+				sqlType = colId.getSqlType();
+				break;
+			}
+		}
+		// Apply cast to string to the SQL data value
+		String result;
+		if (sqlType != null) {
+			XSDType xsdType = SQLToXMLS.getEquivalentType(sqlType);
+			result = XSDLexicalTransformation.extractNaturalRDFFormFrom(
+					xsdType, bytesResult);
+		}
+		else
+		{
+			result = new String(bytesResult, "UTF-8");
+		}
+		return result;
+	}
+
+	public ColumnIdentifier getLanguageColumnValue() {
+		return languageColumnValue;
 	}
 }

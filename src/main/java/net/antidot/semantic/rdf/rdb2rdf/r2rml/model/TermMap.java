@@ -163,4 +163,6 @@ public interface TermMap {
 	 */
 	public String getValue(Map<ColumnIdentifier, byte[]> dbValues, ResultSetMetaData dbTypes) throws R2RMLDataError, SQLException, UnsupportedEncodingException;
 
+	public String getLanguageValue(Map<ColumnIdentifier, byte[]> dbValues, ResultSetMetaData dbTypes) throws R2RMLDataError, SQLException, UnsupportedEncodingException;
+
 }

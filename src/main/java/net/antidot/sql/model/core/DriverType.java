@@ -24,6 +24,8 @@ package net.antidot.sql.model.core;
 public class DriverType {	    
     public static DriverType MysqlDriver = new DriverType("com.mysql.jdbc.Driver");
     public static DriverType PostgreSQL = new DriverType("org.postgresql.Driver");
+    public static DriverType H2 = new DriverType("org.h2.Driver");
+    public static DriverType Oracle = new DriverType("oracle.jdbc.driver.OracleDriver");
 
     private String driverName;
     

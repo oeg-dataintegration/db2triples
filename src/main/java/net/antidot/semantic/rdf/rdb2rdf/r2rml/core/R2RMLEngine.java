@@ -422,6 +422,10 @@ public class R2RMLEngine {
 								+ "in parent row.");
 			if (m >= n) {
 				byte[] value = referencingRows.getBytes(m);
+				if(value != null &&
+						R2RMLProcessor.getDriverType().equals(DriverType.Oracle)) {
+					value = referencingRows.getString(m).getBytes();
+				}
 				result.put(column, value);
 			}
 		}
@@ -458,6 +462,10 @@ public class R2RMLEngine {
 								+ "in child row.");
 			if (m <= n) {
 				byte[] value = referencingRows.getBytes(m);
+				if(value != null &&
+						R2RMLProcessor.getDriverType().equals(DriverType.Oracle)) {
+					value = referencingRows.getString(m).getBytes();
+				}
 				result.put(column, value);
 			}
 		}
@@ -522,7 +530,7 @@ public class R2RMLEngine {
 				String value = tm.getValue(smFromRow, meta);
 				if (value == null)
 					return null;
-				result = (Resource) generateRDFTerm(tm, value);
+				result = (Resource) generateRDFTerm(tm, value, null);
 				// Store Generated RDF Term
 				Map<Integer, Value> sameGeneratedRDFTermMap = new HashMap<Integer, Value>();
 				sameGeneratedRDFTermMap.put(rows.getRow(), result);
@@ -546,7 +554,7 @@ public class R2RMLEngine {
 					String value = tm.getValue(smFromRow, meta);
 					if (value == null)
 						return null;
-					result = (Resource) generateRDFTerm(tm, value);
+					result = (Resource) generateRDFTerm(tm, value, null);
 					// Store Generated RDF Term
 					if (sameGeneratedRDFTerm.containsKey(tm)) {
 						sameGeneratedRDFTerm.get(tm).put(rows.getRow(), result);
@@ -559,7 +567,8 @@ public class R2RMLEngine {
 			}
 		} else {
 			String value = tm.getValue(smFromRow, meta);
-			result = generateRDFTerm(tm, value);
+			String languageValue = tm.getLanguageValue(smFromRow, meta);
+			result = generateRDFTerm(tm, value, languageValue);
 		}
 		return result;
 	}
@@ -700,13 +709,22 @@ public class R2RMLEngine {
 			if(cId.equals(column)) {
 				log.debug("[R2RMLEngine:applyValueToRow] Value found : \""
 					+ rows.getString(i) +"\" (Type: "+cId.getSqlType()+")");
-				byte[] rawData = rows.getBytes(i);
-				
-				// http://bugs.mysql.com/bug.php?id=65943
-				if(rawData != null &&
-					R2RMLProcessor.getDriverType().equals(DriverType.MysqlDriver) &&
-					cId.getSqlType() == SQLType.CHAR) {
-				    rawData = rows.getString(i).getBytes();
+				byte[] rawData;
+				//H2 bug on string to hex conversion: ERROR 90003
+				if(R2RMLProcessor.getDriverType().equals(DriverType.H2) 
+						&& cId.getSqlType() == SQLType.VARCHAR) {
+					rawData = rows.getString(i).getBytes();
+				} else {
+					rawData = rows.getBytes(i);
+					// http://bugs.mysql.com/bug.php?id=65943
+					if(rawData != null &&
+						R2RMLProcessor.getDriverType().equals(DriverType.MysqlDriver) &&
+						cId.getSqlType() == SQLType.CHAR) {
+					    rawData = rows.getString(i).getBytes();
+					} else if(rawData != null &&
+							R2RMLProcessor.getDriverType().equals(DriverType.Oracle)) {
+						rawData = rows.getString(i).getBytes();
+					}
 				}
 				result.put(cId, rawData);
 				found = true;
@@ -735,7 +753,7 @@ public class R2RMLEngine {
 	 * @throws R2RMLDataError
 	 * @throws SQLException
 	 */
-	private Value generateRDFTerm(TermMap termMap, String value)
+	private Value generateRDFTerm(TermMap termMap, String value, String languageValue)
 			throws R2RMLDataError, SQLException {
 		// 1. If value is NULL, then no RDF term is generated.
 		if (termMap == null)
@@ -757,7 +775,7 @@ public class R2RMLEngine {
 
 		case LITERAL:
 			// 4. Otherwise, if the term map's term type is rr:Literal
-			Value valueObj = generateLiteralTermType(termMap, value);
+			Value valueObj = generateLiteralTermType(termMap, value, languageValue);
 			log.debug("[R2RMLEngine:generateRDFTerm] Generated Literal RDF Term : "
 					+ valueObj);
 			return valueObj;
@@ -769,13 +787,15 @@ public class R2RMLEngine {
 		}
 	}
 
-	private Value generateLiteralTermType(TermMap termMap, String value)
+	private Value generateLiteralTermType(TermMap termMap, String value, String languageValue)
 			throws R2RMLDataError, SQLException {
 		// 1. If the term map has a specified language tag, then return a plain
 		// literal
 		// with that language tag and with the natural RDF lexical form
 		// corresponding to value.
-		if (termMap.getLanguageTag() != null) {
+		if (languageValue != null && RDFDataValidator.isValidLanguageTag(languageValue)) {
+			return vf.createLiteral(value, languageValue);
+		} else if (termMap.getLanguageTag() != null) {
 			if (!RDFDataValidator.isValidLanguageTag(termMap.getLanguageTag()))
 				throw new R2RMLDataError(
 						"[R2RMLEngine:generateLiteralTermType] This language tag is not valid : "
@@ -950,7 +970,7 @@ public class R2RMLEngine {
 				+ triplesMap.getLogicalTable().getEffectiveSQLQuery());
 		ResultSet rs = null;
 		java.sql.Statement s = conn.createStatement(
-				ResultSet.HOLD_CURSORS_OVER_COMMIT, ResultSet.CONCUR_READ_ONLY);
+				ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 		if (triplesMap.getLogicalTable().getEffectiveSQLQuery() != null) {
 
 			s.executeQuery(triplesMap.getLogicalTable().getEffectiveSQLQuery());
@@ -976,7 +996,7 @@ public class R2RMLEngine {
 				+ refObjectMap.getJointSQLQuery());
 		ResultSet rs = null;
 		java.sql.Statement s = conn.createStatement(
-				ResultSet.HOLD_CURSORS_OVER_COMMIT, ResultSet.CONCUR_READ_ONLY);
+				ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 		if (refObjectMap.getJointSQLQuery() != null) {
 			s.executeQuery(refObjectMap.getJointSQLQuery());
 			rs = s.getResultSet();
@@ -999,7 +1019,7 @@ public class R2RMLEngine {
 				+ sqlQuery);
 		ResultSet rs = null;
 		java.sql.Statement s = conn.createStatement(
-				ResultSet.HOLD_CURSORS_OVER_COMMIT, ResultSet.CONCUR_READ_ONLY);
+				ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 		s.executeQuery(sqlQuery);
 		rs = s.getResultSet();
 		if (rs == null)
