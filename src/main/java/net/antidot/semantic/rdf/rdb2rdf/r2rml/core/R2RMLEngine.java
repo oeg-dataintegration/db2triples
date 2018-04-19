@@ -608,7 +608,7 @@ public class R2RMLEngine {
 			Map<ColumnIdentifier, byte[]> omFromRow = applyValueToRow(om);
 			boolean nullFound = false;
 			for (ColumnIdentifier value : omFromRow.keySet())
-				if (omFromRow.get(value) == null) {
+				if (!value.equals(om.getLanguageColumnValue()) && omFromRow.get(value) == null) {
 					log.debug("[R2RMLEngine:genereateRDFTriplesFromRow] NULL found, this object will be ignored.");
 					nullFound = true;
 					break;
