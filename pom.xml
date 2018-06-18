@@ -26,6 +26,7 @@
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <rdf4j.version>2.3.2</rdf4j.version>
   </properties>
   
   <dependencies>
@@ -63,15 +64,34 @@
     <dependency>
         <groupId>org.eclipse.rdf4j</groupId>
         <artifactId>rdf4j-sail-nativerdf</artifactId>
-        <version>2.3.2</version>
+        <version>${rdf4j.version}</version>
         <scope>compile</scope>
     </dependency>
     <dependency>
         <groupId>org.eclipse.rdf4j</groupId>
-        <artifactId>rdf4j-runtime</artifactId>
-        <version>2.3.2</version>
+        <artifactId>rdf4j-sail-memory</artifactId>
+        <version>${rdf4j.version}</version>
         <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>org.eclipse.rdf4j</groupId>
+      <artifactId>rdf4j-repository-http</artifactId>
+      <version>${rdf4j.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.rdf4j</groupId>
+      <artifactId>rdf4j-repository-sail</artifactId>
+      <version>${rdf4j.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.rdf4j</groupId>
+      <artifactId>rdf4j-rio-nquads</artifactId>
+      <version>${rdf4j.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
     <dependency>
     	<groupId>org.slf4j</groupId>
     	<artifactId>slf4j-simple</artifactId>
