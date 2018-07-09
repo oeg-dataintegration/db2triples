@@ -39,6 +39,7 @@ import java.util.StringTokenizer;
 
 import net.antidot.semantic.rdf.rdb2rdf.commons.SQLToXMLS;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.R2RMLDataError;
+import net.antidot.semantic.rdf.rdb2rdf.r2rml.model.TermType;
 import net.antidot.semantic.xmls.xsd.XSDLexicalTransformation;
 import net.antidot.semantic.xmls.xsd.XSDType;
 import net.antidot.sql.model.db.ColumnIdentifier;
@@ -261,7 +262,7 @@ public abstract class R2RMLToolkit {
 	public static String extractColumnValueFromStringTemplate(
 			String stringTemplate,
 			Map<ColumnIdentifier, byte[]> dbValues,
-			ResultSetMetaData dbTypes) throws R2RMLDataError, SQLException,
+			ResultSetMetaData dbTypes, TermType termType) throws R2RMLDataError, SQLException,
 			UnsupportedEncodingException {
 		// Let result be the template string
 
@@ -290,7 +291,11 @@ public abstract class R2RMLToolkit {
 			{
 			    value = new String(byteValue, "UTF-8");
 			}
-			result = column.replaceAll(result, getIRISafeVersion(value));
+			if(termType.equals(TermType.LITERAL)){ //replace only for IRIs with IRISafeVersion
+				result = column.replaceAll(result, value);
+			}else{
+				result = column.replaceAll(result, getIRISafeVersion(value));
+			}
 			// Test backslashes result =
 			/*
 			 * result.replaceAll("\\{\\\"" + column + "\\\"\\}",

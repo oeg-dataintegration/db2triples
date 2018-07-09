@@ -58,10 +58,13 @@ public enum SQLType {
 	VARCHAR(Types.VARCHAR),
 	STRING(Types.LONGVARCHAR),
 	TINYINT(Types.TINYINT),
+	NVARCHAR(Types.NVARCHAR),
 	
 	
 	// Unsupported
-	BLOB(Types.BLOB);
+	BLOB(Types.BLOB),
+	CLOB(Types.CLOB),
+	SQLXML(Types.SQLXML);
 	
 	// Log
 	private static Log log = LogFactory
@@ -121,6 +124,7 @@ public enum SQLType {
 		result.add(CHAR);
 		result.add(VARCHAR);
 		result.add(STRING);
+		result.add(NVARCHAR);
 		return result;
 	}
 
@@ -155,7 +159,7 @@ public enum SQLType {
 			if (sqlType.getID() == id)
 				return sqlType;
 		}
-		log.warn("[SQLType:getSQLCastQuery] Unkonwm SQL id : " + id);
+		log.warn("[SQLType:getSQLCastQuery] Unkonwn SQL id : " + id);
 		return UNKNOWN;
 	}
 	

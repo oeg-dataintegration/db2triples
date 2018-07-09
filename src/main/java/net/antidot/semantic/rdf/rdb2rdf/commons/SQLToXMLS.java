@@ -60,6 +60,7 @@ public abstract class SQLToXMLS {
 		equivalentTypes.put(SQLType.VARCHAR, XSDType.STRING);
 		equivalentTypes.put(SQLType.CHAR, XSDType.STRING);
 		equivalentTypes.put(SQLType.STRING, XSDType.STRING);
+		equivalentTypes.put(SQLType.NVARCHAR, XSDType.STRING);
 	}
 	
 	public static XSDType getEquivalentType(SQLType sqlType){

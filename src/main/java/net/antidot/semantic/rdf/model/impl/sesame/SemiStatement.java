@@ -29,25 +29,25 @@
  */
 package net.antidot.semantic.rdf.model.impl.sesame;
 
-import org.openrdf.model.URI;
-import org.openrdf.model.Value;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Value;
 
 public class SemiStatement {
 	
-	private URI p;
+	private IRI p;
 	private Value o;
 	
-	public SemiStatement(URI p, Value o){
+	public SemiStatement(IRI p, Value o){
 		this.p = p;
 		this.o = o;
 	}
 	
 	
-	public URI getPredicate() {
+	public IRI getPredicate() {
 		return p;
 	}
 
-	public void setPredicate(URI p) {
+	public void setPredicate(IRI p) {
 		this.p = p;
 	}
 

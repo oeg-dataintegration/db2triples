@@ -39,7 +39,7 @@ import net.antidot.sql.model.core.DriverType;
 import net.antidot.sql.model.db.Key;
 import net.antidot.sql.model.db.Tuple;
 
-import org.openrdf.model.Statement;
+import org.eclipse.rdf4j.model.Statement;
 
 
 public interface DirectMappingEngine {
