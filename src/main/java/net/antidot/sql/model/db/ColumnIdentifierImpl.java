@@ -108,7 +108,7 @@ public class ColumnIdentifierImpl implements ColumnIdentifier {
      * Build a Column identifier from a ResultSetMetadata. May have specific
      * rule depending of the driver...
      * 
-     * @param columnName
+     * @param meta
      * @return
      * @throws SQLException
      */

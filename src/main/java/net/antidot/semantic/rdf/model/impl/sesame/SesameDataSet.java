@@ -337,7 +337,7 @@ public class SesameDataSet {
 	/**
 	 * Import RDF data from a file
 	 * 
-	 * @param location
+	 * @param filepath
 	 *            of file (/path/file) with RDF data
 	 * @param format
 	 *            RDF format of the string (used to select parser)
@@ -388,7 +388,6 @@ public class SesameDataSet {
 	 *            output stream for the serialization
 	 * @param outform
 	 *            the RDF serialization format for the dump
-	 * @return
 	 */
 	public void dumpRDF(OutputStream out, RDFFormat outform) {
 		try {
@@ -411,7 +410,6 @@ public class SesameDataSet {
 	 *            destination file for the serialization
 	 * @param outform
 	 *            the RDF serialization format for the dump
-	 * @return
 	 */
 	public void dumpRDF(String filePath, RDFFormat outform) {
 		OutputStream output;
@@ -561,7 +559,7 @@ public class SesameDataSet {
 	 * Execute CONSTRUCT/DESCRIBE SPARQL queries against the graph from a SPARQL
 	 * request file. This file contains only one request.
 	 * 
-	 * @param pathToFile
+	 * @param pathToSPARQLFile
 	 *            path to SPARQL request file
 	 * @return list of solutions, each containing a hashmap of bindings
 	 */
@@ -591,7 +589,7 @@ public class SesameDataSet {
 	 * Execute SELECT SPARQL queries against the graph from a SPARQL request
 	 * file. This file contains only one request.
 	 * 
-	 * @param pathToFile
+	 * @param pathToSPARQLFile
 	 *            path to SPARQL request file
 	 * @return list of solutions, each containing a hashmap of bindings
 	 */

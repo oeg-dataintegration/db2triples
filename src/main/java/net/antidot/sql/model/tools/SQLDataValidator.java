@@ -42,7 +42,7 @@ public class SQLDataValidator {
 	/**
 	 * Check if a SQL query is valid. 
 	 * The value of rr:sqlQuery must conform to the production 
-	 * <direct select statement: multiple rows> in [SQL2]
+	 * {@literal <}direct select statement: multiple rows{@literal >} in [SQL2]
 	 * with an optional trailing semicolon character and optional
 	 *  surrounding white space (excluding comments) as defined in [TURTLE].
 	 */

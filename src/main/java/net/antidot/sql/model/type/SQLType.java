@@ -151,7 +151,7 @@ public enum SQLType {
 	/**
 	 * Converts a specific SQL Type from its display name.
 	 * 
-	 * @param displayName
+	 * @param id
 	 * @return
 	 */
 	public static SQLType toSQLType(int id) {

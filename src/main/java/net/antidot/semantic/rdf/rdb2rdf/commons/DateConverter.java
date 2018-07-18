@@ -44,7 +44,7 @@ public class DateConverter {
 	/**
 	 * Convert a SQL timestamp in a date format in a conform string date.
 	 * 
-	 * @param mySQLType
+	 * @param sqlType
 	 * @param timestamp
 	 * @param timeZone
 	 */

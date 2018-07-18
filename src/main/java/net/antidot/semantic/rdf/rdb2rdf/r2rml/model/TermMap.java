@@ -159,7 +159,6 @@ public interface TermMap {
 	 * 
 	 * @param dbValues
 	 * @return
-	 * @throws  
 	 */
 	public String getValue(Map<ColumnIdentifier, byte[]> dbValues, ResultSetMetaData dbTypes) throws R2RMLDataError, SQLException, UnsupportedEncodingException;
 

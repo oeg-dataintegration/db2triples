@@ -141,7 +141,7 @@ public abstract class R2RMLToolkit {
 	 * column reference in an inverse expression. The string between the braces
 	 * MUST be a valid column name.
 	 * 
-	 * @param value
+	 * @param inverseExpression
 	 * @return
 	 */
 	public static Set<ColumnIdentifier> extractColumnNamesFromInverseExpression(
@@ -171,15 +171,14 @@ public abstract class R2RMLToolkit {
 	 * if c is a referenced column in the term map - the column name of column
 	 * c, otherwise
 	 * 
-	 * @param stringTemplate
+	 * @param inverseExpression
 	 * @param dbValues
 	 * @param columnReferences
-	 * @param dbTypes
+	 * @param columnReferences
 	 * @return
 	 * @throws R2RMLDataError
 	 * @throws SQLException
 	 * @throws UnsupportedEncodingException
-	 * @throws MalformedURLException
 	 */
 	public static String extractColumnValueFromInverseExpression(
 			String inverseExpression,
@@ -257,7 +256,6 @@ public abstract class R2RMLToolkit {
 	 * @throws R2RMLDataError
 	 * @throws SQLException
 	 * @throws UnsupportedEncodingException
-	 * @throws MalformedURLException
 	 */
 	public static String extractColumnValueFromStringTemplate(
 			String stringTemplate,
@@ -317,9 +315,6 @@ public abstract class R2RMLToolkit {
 	/**
 	 * The IRI-safe version of a string is obtained by applying the following
 	 * transformation in [RFC3987].
-	 * 
-	 * @throws R2RMLDataError
-	 * @throws MalformedURLException
 	 */
 	public static String getIRISafeVersion(String value) {
 		// Any character that is not in the iunreserved production
@@ -357,7 +352,6 @@ public abstract class R2RMLToolkit {
 	 * string value.
 	 * 
 	 * @throws R2RMLDataError
-	 * @throws MalformedURLException
 	 */
 	public static String getURLSafeVersion(String value) throws R2RMLDataError {
 		if (value == null)

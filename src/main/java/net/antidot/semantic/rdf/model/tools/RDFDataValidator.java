@@ -109,7 +109,7 @@ public abstract class RDFDataValidator {
 	 * The set of validatable RDF datatypes includes all datatypes 
 	 * in the RDF datatype column of the table of natural datatype
 	 * mappings, as defined in [XMLSCHEMA2]. 
-	 * @param string
+	 * @param datatype
 	 * @return
 	 */
 	public static boolean isValidDatatype(String datatype) {

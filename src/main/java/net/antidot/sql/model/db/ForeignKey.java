@@ -60,7 +60,6 @@ public class ForeignKey  extends CandidateKey {
 
 	/**
 	 * Set the referency key.  This foreign key targets another key in another table called reference key.
-	 * @return
 	 */
 	public void setReferenceKey(CandidateKey referenceKey) {
 		this.referenceKey = referenceKey;

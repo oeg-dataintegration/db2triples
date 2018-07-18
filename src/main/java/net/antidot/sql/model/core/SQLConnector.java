@@ -235,7 +235,7 @@ public abstract class SQLConnector {
 	 * Convert a Date object into a string date (in xsd:date format)
 	 * 
 	 * @param date
-	 * @param withTimeZone
+	 * @param timeZone
 	 * @return
 	 */
 	public static String dateToDate(Date date, String timeZone) {
@@ -254,7 +254,7 @@ public abstract class SQLConnector {
 	 * Convert a Date object into a string date (in xsd:dateTime format)
 	 * 
 	 * @param date
-	 * @param withTimeZone
+	 * @param timeZone
 	 * @return
 	 */
 	public static String dateToISO8601(Date date, String timeZone) {
