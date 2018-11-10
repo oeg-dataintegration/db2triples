@@ -35,7 +35,6 @@ import net.antidot.semantic.rdf.model.impl.sesame.SesameDataSet;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLStructureException;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLSyntaxException;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.R2RMLDataError;
-import net.antidot.semantic.rdf.rdb2rdf.r2rml.model.R2RMLMapping;
 import net.antidot.sql.model.core.DriverType;
 
 import org.apache.commons.logging.Log;
@@ -46,16 +45,24 @@ import org.eclipse.rdf4j.rio.RDFParseException;
 public abstract class R2RMLProcessor {
 	
 	// Log
-	private static Log log = LogFactory.getLog(R2RMLProcessor.class);
-	
-	private static Long start = 0l;
+	protected static Log log = LogFactory.getLog(R2RMLProcessor.class);
 	
 	// JDBC used driver
-	private static DriverType driver;
+	static InheritableThreadLocal<DriverType> driverType = new InheritableThreadLocal<>();
 	
+	/**
+	 * Gets the current driver type.
+	 * 
+	 * Note: using ThreadLocal to still be able to use static method (required internally all over the place)
+	 * @return
+	 */
 	public static DriverType getDriverType() {
-	    return driver;
+	    return driverType.get();
 	}	
+	
+	public static void setDriverType(DriverType dt) {
+		driverType.set(dt);
+	}
 	
 	/**
 	 * Convert a database into a RDF graph from a database Connection
@@ -70,27 +77,8 @@ public abstract class R2RMLProcessor {
 	public static SesameDataSet convertDatabase(Connection conn,
 			String pathToR2RMLMappingDocument, String baseIRI, String pathToNativeStore, DriverType driver) throws InstantiationException,
 			IllegalAccessException, ClassNotFoundException, SQLException, R2RMLDataError, InvalidR2RMLStructureException, InvalidR2RMLSyntaxException, RepositoryException, RDFParseException, IOException {
-		log.info("[R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...");
-		// Init time
-		start = System.currentTimeMillis();
-		// Extract R2RML Mapping object
-		R2RMLMapping r2rmlMapping = null;
-		
-		R2RMLProcessor.driver = driver;
-		r2rmlMapping = R2RMLMappingFactory.extractR2RMLMapping(pathToR2RMLMappingDocument, driver);
-		
-		// Connect database
-		R2RMLEngine r2rmlEngine = new R2RMLEngine(conn);
-		SesameDataSet result =  r2rmlEngine.runR2RMLMapping(r2rmlMapping, baseIRI, pathToNativeStore);
-		log.info("[R2RMLMapper:convertDatabase] Mapping R2RML done.");
-		Float stop = Float.valueOf(System.currentTimeMillis() - start) / 1000;
-		log.info("[R2RMLMapper:convertDatabase] Database extracted in "
-				+ stop + " seconds.");
-		log.info("[R2RMLMapper:convertDatabase] Number of extracted triples : " +
-				result.getSize());
-		
-		R2RMLProcessor.driver = null;
-		return result;
+		R2RMLEngine r2e = new R2RMLEngine(conn);
+		return r2e.doConvertDatabase(conn, pathToR2RMLMappingDocument, baseIRI, pathToNativeStore, driver);
 	}
 	
 	/**
