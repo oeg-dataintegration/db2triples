@@ -120,7 +120,7 @@ public class XSDLexicalForm {
 		// Remove '+'
 		if (nonCanonicalLexicalForm.startsWith("+"))
 			nonCanonicalLexicalForm = nonCanonicalLexicalForm.substring(1);
-		Integer result = Integer.valueOf(nonCanonicalLexicalForm);
+		BigDecimal result = new BigDecimal(nonCanonicalLexicalForm);
 		return result.toString();
 	}
 	

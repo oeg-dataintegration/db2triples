@@ -29,6 +29,7 @@
  ****************************************************************************/
 package net.antidot.semantic.rdf.rdb2rdf.r2rml.core;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -48,11 +49,15 @@ import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.model.Value;
 import org.eclipse.rdf4j.model.ValueFactory;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
+import org.eclipse.rdf4j.repository.RepositoryException;
+import org.eclipse.rdf4j.rio.RDFParseException;
 
 import net.antidot.semantic.rdf.model.impl.sesame.SesameDataSet;
 import net.antidot.semantic.rdf.model.tools.RDFDataValidator;
 import net.antidot.semantic.rdf.rdb2rdf.commons.SQLToXMLS;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLVocabulary.R2RMLTerm;
+import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLStructureException;
+import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLSyntaxException;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.R2RMLDataError;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.model.GraphMap;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.model.ObjectMap;
@@ -76,24 +81,26 @@ import net.antidot.sql.model.type.SQLType;
 public class R2RMLEngine {
 
 	// Log
-	private static Log log = LogFactory.getLog(R2RMLEngine.class);
+	protected static Log log = LogFactory.getLog(R2RMLEngine.class);
 
 	// SQL Connection
-	private Connection conn;
+	protected Connection conn;
 	// Current logical table
-	private ResultSet rows;
+	protected ResultSet rows;
 	// Current referencing table
-	private ResultSet referencingRows;
+	protected ResultSet referencingRows;
 	// Current meta data of logical table
-	private ResultSetMetaData meta;
+	protected ResultSetMetaData meta;
 	// A base IRI used in resolving relative IRIs produced by the R2RML mapping.
-	private String baseIRI;
+	protected String baseIRI;
 
-	private Map<TermMap, Map<Integer, ResultSet>> sameRows;
-	private Map<TermMap, Map<Integer, Value>> sameGeneratedRDFTerm;
+	protected Map<TermMap, Map<Integer, ResultSet>> sameRows;
+	protected Map<TermMap, Map<Integer, Value>> sameGeneratedRDFTerm;
 
+	protected Long start = 0l;
+	
 	// Value factory
-	private static ValueFactory vf = SimpleValueFactory.getInstance();
+	protected static ValueFactory vf = SimpleValueFactory.getInstance();
 
 	public R2RMLEngine(Connection conn) {
 		super();
@@ -154,6 +161,58 @@ public class R2RMLEngine {
 	}
 
 	/**
+	 * Convert a database into a RDF graph from a database Connection
+	 * and a R2RML instance (with native storage).
+	 * @throws R2RMLDataError 
+	 * @throws InvalidR2RMLSyntaxException 
+	 * @throws InvalidR2RMLStructureException 
+	 * @throws IOException 
+	 * @throws RDFParseException 
+	 * @throws RepositoryException 
+	 */
+	public synchronized SesameDataSet doConvertDatabase(Connection conn,
+			String pathToR2RMLMappingDocument, String baseIRI, String pathToNativeStore, DriverType driver) throws InstantiationException,
+			IllegalAccessException, ClassNotFoundException, SQLException, R2RMLDataError, InvalidR2RMLStructureException, InvalidR2RMLSyntaxException, RepositoryException, RDFParseException, IOException {
+		log.info("[R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...");
+		// Init time
+		start = System.currentTimeMillis();
+		// Extract R2RML Mapping object
+		R2RMLMapping r2rmlMapping = null;
+		
+		R2RMLProcessor.setDriverType(driver);
+		r2rmlMapping = R2RMLMappingFactory.extractR2RMLMapping(pathToR2RMLMappingDocument, driver);
+		
+		// Connect database
+		SesameDataSet result =  runR2RMLMapping(r2rmlMapping, baseIRI, pathToNativeStore);
+		log.info("[R2RMLMapper:convertDatabase] Mapping R2RML done.");
+		Float stop = Float.valueOf(System.currentTimeMillis() - start) / 1000;
+		log.info("[R2RMLMapper:convertDatabase] Database extracted in "
+				+ stop + " seconds.");
+		log.info("[R2RMLMapper:convertDatabase] Number of extracted triples : " +
+				result.getSize());
+		
+		R2RMLProcessor.setDriverType( null );
+		return result;
+	}
+	
+	/**
+	 * Convert a MySQL database into a RDF graph from a database Connection
+	 * and a R2RML instance.
+	 * @throws R2RMLDataError 
+	 * @throws InvalidR2RMLSyntaxException 
+	 * @throws InvalidR2RMLStructureException 
+	 * @throws IOException 
+	 * @throws RDFParseException 
+	 * @throws RepositoryException 
+	 */
+	public SesameDataSet doConvertDatabase(Connection conn,
+			String pathToR2RMLMappingDocument,  String baseIRI, DriverType driver) throws InstantiationException,
+			IllegalAccessException, ClassNotFoundException, SQLException, R2RMLDataError, InvalidR2RMLStructureException, InvalidR2RMLSyntaxException, RepositoryException, RDFParseException, IOException {
+		return doConvertDatabase(conn, pathToR2RMLMappingDocument, baseIRI, null, driver);
+	}
+
+	
+	/**
 	 * This process adds RDF triples to the output dataset. Each generated
 	 * triple is placed into one or more graphs of the output dataset. The
 	 * generated RDF triples are determined by the following algorithm.
@@ -164,7 +223,7 @@ public class R2RMLEngine {
 	 * @throws R2RMLDataError
 	 * @throws UnsupportedEncodingException
 	 */
-	private void generateRDFTriples(SesameDataSet sesameDataSet,
+	protected void generateRDFTriples(SesameDataSet sesameDataSet,
 			R2RMLMapping r2rmlMapping) throws SQLException, R2RMLDataError,
 			UnsupportedEncodingException {
 		log.debug("[R2RMLEngine:generateRDFTriples] Generate RDF triples... ");
@@ -178,7 +237,7 @@ public class R2RMLEngine {
 		}
 	}
 
-	private void genereateRDFTriplesFromTriplesMap(SesameDataSet sesameDataSet,
+	protected void genereateRDFTriplesFromTriplesMap(SesameDataSet sesameDataSet,
 			TriplesMap triplesMap) throws SQLException, R2RMLDataError,
 			UnsupportedEncodingException {
 		log.debug("[R2RMLEngine:genereateRDFTriplesFromTriplesMap] Generate RDF triples from triples map... ");
@@ -213,7 +272,7 @@ public class R2RMLEngine {
 	/*
 	 * An inverse expression MUST satisfy the following condition.
 	 */
-	private void performInverseExpression(Map<ColumnIdentifier, byte[]> dbValues,
+	protected void performInverseExpression(Map<ColumnIdentifier, byte[]> dbValues,
 			TermMap tm, String effectiveSQLQuery) throws SQLException,
 			R2RMLDataError, UnsupportedEncodingException {
 		// Every column reference in the inverse expression MUST
@@ -261,7 +320,7 @@ public class R2RMLEngine {
 
 	}
 
-	private Set<ColumnIdentifier> getExistingColumnNames() throws SQLException {
+	protected Set<ColumnIdentifier> getExistingColumnNames() throws SQLException {
 		Set<ColumnIdentifier> result = new HashSet<ColumnIdentifier>();
 		for (int i = 1; i <= meta.getColumnCount(); i++)
 		    result.add(ColumnIdentifierImpl.buildFromJDBCResultSet(meta, i));
@@ -271,7 +330,7 @@ public class R2RMLEngine {
 		return result;
 	}
 
-	private ResultSetMetaData extractMetaDatas(ResultSet rows2)
+	protected ResultSetMetaData extractMetaDatas(ResultSet rows2)
 			throws SQLException {
 		ResultSetMetaData meta = rows.getMetaData();
 		// Tests the presence of duplicate column names in the SELECT list of
@@ -290,7 +349,7 @@ public class R2RMLEngine {
 		return meta;
 	}
 
-	private void generateRDFTriplesFromReferencingObjectMap(
+	protected void generateRDFTriplesFromReferencingObjectMap(
 			SesameDataSet sesameDataSet, TriplesMap triplesMap, SubjectMap sm,
 			Set<GraphMap> sgm, PredicateObjectMap predicateObjectMap,
 			ReferencingObjectMap referencingObjectMap) throws SQLException,
@@ -313,7 +372,7 @@ public class R2RMLEngine {
 					psm, pogm, sgm, predicateObjectMap, n);
 	}
 
-	private void generateRDFTriplesFromReferencingRow(
+	protected void generateRDFTriplesFromReferencingRow(
 			SesameDataSet sesameDataSet, TriplesMap triplesMap, SubjectMap sm,
 			SubjectMap psm, Set<GraphMap> pogm, Set<GraphMap> sgm,
 			PredicateObjectMap predicateObjectMap, int n) throws SQLException,
@@ -403,7 +462,7 @@ public class R2RMLEngine {
 	 * @throws SQLException
 	 * @throws R2RMLDataError
 	 */
-	private Map<ColumnIdentifier, byte[]> applyValueToParentRow(TermMap tm, int n)
+	protected Map<ColumnIdentifier, byte[]> applyValueToParentRow(TermMap tm, int n)
 			throws SQLException, R2RMLDataError {
 		Map<ColumnIdentifier, byte[]> result = new HashMap<ColumnIdentifier, byte[]>();
 		Set<ColumnIdentifier> columns = tm.getReferencedColumns();
@@ -440,7 +499,7 @@ public class R2RMLEngine {
 	 * @throws SQLException
 	 * @throws R2RMLDataError
 	 */
-	private Map<ColumnIdentifier, byte[]> applyValueToChildRow(TermMap tm, int n)
+	protected Map<ColumnIdentifier, byte[]> applyValueToChildRow(TermMap tm, int n)
 			throws SQLException, R2RMLDataError {
 		Map<ColumnIdentifier, byte[]> result = new HashMap<ColumnIdentifier, byte[]>();
 		Set<ColumnIdentifier> columns = tm.getReferencedColumns();
@@ -466,7 +525,7 @@ public class R2RMLEngine {
 		return result;
 	}
 
-	private void generateRDFTriplesFromRow(SesameDataSet sesameDataSet,
+	protected void generateRDFTriplesFromRow(SesameDataSet sesameDataSet,
 			TriplesMap triplesMap, SubjectMap sm, Set<IRI> classes,
 			Set<GraphMap> sgm) throws SQLException, R2RMLDataError,
 			UnsupportedEncodingException {
@@ -511,7 +570,8 @@ public class R2RMLEngine {
 
 	}
 
-	private Value extractValueFromTermMap(TermMap tm,
+	@SuppressWarnings("unlikely-arg-type")
+	protected Value extractValueFromTermMap(TermMap tm,
 			Map<ColumnIdentifier, byte[]> smFromRow, TriplesMap triplesMap)
 			throws SQLException, R2RMLDataError, UnsupportedEncodingException {
 		Value result = null;
@@ -568,7 +628,7 @@ public class R2RMLEngine {
 		return result;
 	}
 
-	private void generateRDFTriplesFromPredicateObjectMap(
+	protected void generateRDFTriplesFromPredicateObjectMap(
 			SesameDataSet sesameDataSet, TriplesMap triplesMap,
 			Resource subject, Set<IRI> subjectGraphs,
 			PredicateObjectMap predicateObjectMap) throws SQLException,
@@ -655,7 +715,7 @@ public class R2RMLEngine {
 	 * @param object
 	 * @param targetGraphs
 	 */
-	private void addTriplesToTheOutputDataset(SesameDataSet sesameDataSet,
+	protected void addTriplesToTheOutputDataset(SesameDataSet sesameDataSet,
 			Resource subject, IRI predicate, Value object, Set<IRI> targetGraphs)
 	{
 
@@ -690,7 +750,7 @@ public class R2RMLEngine {
 		}
 	}
 
-	private Map<ColumnIdentifier, byte[]> applyValueToRow(TermMap tm) throws SQLException {
+	protected Map<ColumnIdentifier, byte[]> applyValueToRow(TermMap tm) throws SQLException {
 		Map<ColumnIdentifier, byte[]> result = new HashMap<ColumnIdentifier, byte[]>();
 		Set<ColumnIdentifier> columns = tm.getReferencedColumns();
 		for (ColumnIdentifier column : columns) {
@@ -742,7 +802,7 @@ public class R2RMLEngine {
 	 * @throws R2RMLDataError
 	 * @throws SQLException
 	 */
-	private Value generateRDFTerm(TermMap termMap, String value, String languageValue)
+	protected Value generateRDFTerm(TermMap termMap, String value, String languageValue)
 			throws R2RMLDataError, SQLException {
 		// 1. If value is NULL, then no RDF term is generated.
 		if (termMap == null)
@@ -776,7 +836,7 @@ public class R2RMLEngine {
 		}
 	}
 
-	private Value generateLiteralTermType(TermMap termMap, String value, String languageValue)
+	protected Value generateLiteralTermType(TermMap termMap, String value, String languageValue)
 			throws R2RMLDataError, SQLException {
 		// 1. If the term map has a specified language tag, then return a plain
 		// literal
@@ -828,7 +888,7 @@ public class R2RMLEngine {
 		}
 	}
 
-	private BNode generateBlankNodeTermType(TermMap termMap, String value) {
+	protected BNode generateBlankNodeTermType(TermMap termMap, String value) {
 		// 1. Return a blank node whose blank node identifier is
 		// the natural RDF lexical form corresponding to value. (Note: scope of
 		// blank nodes)
@@ -843,7 +903,7 @@ public class R2RMLEngine {
 		}
 	}
 
-	private IRI generateIRITermType(TermMap termMap, String value)
+	protected IRI generateIRITermType(TermMap termMap, String value)
 			throws R2RMLDataError, SQLException {
 		// 1. Let value be the natural RDF lexical form corresponding to value.
 		// 2. If value is a valid absolute IRI [RFC3987], then return an IRI
@@ -876,7 +936,7 @@ public class R2RMLEngine {
 		}
 	}
 
-	private SQLType extractImplicitDatatype(TermMap objectMap)
+	protected SQLType extractImplicitDatatype(TermMap objectMap)
 			throws SQLException {
 		SQLType result = null;
 		if (objectMap.getTermMapType() != TermMapType.TEMPLATE_VALUED
@@ -906,7 +966,7 @@ public class R2RMLEngine {
 	 * @throws SQLException
 	 * @throws R2RMLDataError
 	 */
-	private Value extractNaturalLiteralFormFrom(TermMap termMap, String value)
+	protected Value extractNaturalLiteralFormFrom(TermMap termMap, String value)
 			throws SQLException, R2RMLDataError {
 		// 1. Let dt be the SQL datatype of the SQL data value.
 		SQLType dt = extractImplicitDatatype(termMap);
@@ -954,7 +1014,7 @@ public class R2RMLEngine {
 	 * @param triplesMap
 	 * @throws SQLException
 	 */
-	private ResultSet constructLogicalTable(TriplesMap triplesMap)
+	protected ResultSet constructLogicalTable(TriplesMap triplesMap)
 			throws SQLException {
 		log.debug("[R2RMLEngine:constructLogicalTable] Run effective SQL Query : "
 				+ triplesMap.getLogicalTable().getEffectiveSQLQuery());
@@ -980,7 +1040,7 @@ public class R2RMLEngine {
 		return rs;
 	}
 
-	private ResultSet constructJointTable(ReferencingObjectMap refObjectMap)
+	protected ResultSet constructJointTable(ReferencingObjectMap refObjectMap)
 			throws SQLException {
 		log.debug("[R2RMLEngine:constructJointTable] Run joint SQL Query : "
 				+ refObjectMap.getJointSQLQuery());
@@ -1000,7 +1060,7 @@ public class R2RMLEngine {
 		return rs;
 	}
 
-	private ResultSet constructInversionTable(String instantiation,
+	protected ResultSet constructInversionTable(String instantiation,
 			String effectiveSQLQuery) throws SQLException {
 		String sqlQuery = "SELECT * FROM (" + effectiveSQLQuery
 				+ ") AS tmp WHERE " + instantiation + ";";
@@ -1018,7 +1078,7 @@ public class R2RMLEngine {
 		return rs;
 	}
 	
-	private byte[] getBytes(ResultSet rs, int m) throws SQLException {
+	protected byte[] getBytes(ResultSet rs, int m) throws SQLException {
 		byte[] value = null;
 		if(R2RMLProcessor.getDriverType().equals(DriverType.H2)  
 				|| (R2RMLProcessor.getDriverType().equals(DriverType.MSSQL) || R2RMLProcessor.getDriverType()
@@ -1038,7 +1098,7 @@ public class R2RMLEngine {
 		return value;
 	}
 	
-	private java.sql.Statement createStatement() throws SQLException {
+	protected java.sql.Statement createStatement() throws SQLException {
 		if(R2RMLProcessor.getDriverType().equals(DriverType.H2)  
 				|| (R2RMLProcessor.getDriverType().equals(DriverType.MSSQL) || R2RMLProcessor.getDriverType()
 						.getDriverName().equals("com.microsoft.sqlserver.jdbc.SQLServerDriver"))
