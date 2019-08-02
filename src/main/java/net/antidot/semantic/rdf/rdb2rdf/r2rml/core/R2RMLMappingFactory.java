@@ -721,7 +721,7 @@ public abstract class R2RMLMappingFactory {
 	private static String extractLiteralFromTermMap(
 			SesameDataSet r2rmlMappingGraph, Resource termType, String namespace, R2RMLTerm term)
 			throws InvalidR2RMLStructureException {
-		URI p = r2rmlMappingGraph.URIref(namespace + term);
+		IRI p = r2rmlMappingGraph.URIref(namespace + term);
 		List<Statement> statements = r2rmlMappingGraph.tuplePattern(termType, p, null);
 		if (statements.isEmpty())
 			return null;
