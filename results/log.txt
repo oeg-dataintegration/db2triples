@@ -1,0 +1,1126 @@
+No stopped containers
+Creating r2rmltc-mysql ... 
+[1A[2KCreating r2rmltc-mysql ... [32mdone[0m[1B2021/04/12 12:40:37:056 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:37:523 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:37:526 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+2021/04/12 12:40:37:679 UTC [INFO] R2RMLEngine - [R2RMLEngine:generateRDFTriples] 0 triples generated for http://example.com/base/TriplesMap1
+2021/04/12 12:40:37:679 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertDatabase] Mapping R2RML done.
+2021/04/12 12:40:37:680 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertDatabase] Database extracted in 0.153 seconds.
+2021/04/12 12:40:37:681 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertDatabase] Number of extracted triples : 0
+2021/04/12 12:40:37:681 UTC [INFO] Db2triples - Serialize RDF graph...
+2021/04/12 12:40:37:688 UTC [INFO] Db2triples - RDF graph serialized into /home/jtoledo/tmp/db2triples/test-cases/../results/output.nt
+2021/04/12 12:40:38:044 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:38:463 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:38:465 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Name"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:38:838 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:39:256 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:39:258 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Name"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:39:721 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:40:135 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:40:138 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:40:500 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:40:943 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:40:946 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:41:335 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:41:790 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:41:792 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:42:154 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:42:590 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:42:592 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Name"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromPredicateObjectMap(R2RMLEngine.java:663)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:568)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:42:948 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:43:378 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:43:380 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLSyntaxErrorException: Table 'r2rml.Students' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1218)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.constructLogicalTable(R2RMLEngine.java:1030)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:248)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:43:729 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:44:153 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:44:156 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromPredicateObjectMap(R2RMLEngine.java:663)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:568)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:44:518 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:44:946 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:44:949 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'THIS IS NOT A VALID SQL QUERY' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1218)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.constructLogicalTable(R2RMLEngine.java:1030)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:248)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:45:312 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:45:750 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:45:753 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:extractMetaDatas] duplicate column names in the SELECT list of the SQL query
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.extractMetaDatas(R2RMLEngine.java:344)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:249)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:46:134 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:46:561 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:46:564 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:46:915 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:47:335 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:47:337 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:47:785 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:48:208 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:48:211 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:48:596 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:49:047 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:49:050 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:49:508 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:49:961 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:49:964 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Student"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:50:332 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:50:762 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:50:765 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLStructureException: [StdSubjectMap:checkSpecificTermType] If the term map is a subject map: only rr:IRI or rr:BlankNode is required
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.StdSubjectMap.checkSpecificTermType(StdSubjectMap.java:110)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.AbstractTermMap.checkTermType(AbstractTermMap.java:188)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.AbstractTermMap.setTermType(AbstractTermMap.java:168)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.AbstractTermMap.<init>(AbstractTermMap.java:79)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.StdSubjectMap.<init>(StdSubjectMap.java:57)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractSubjectMap(R2RMLMappingFactory.java:652)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractTriplesMap(R2RMLMappingFactory.java:295)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractR2RMLMapping(R2RMLMappingFactory.java:134)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:183)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:51:197 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:51:621 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:51:623 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "lname"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:51:989 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:52:422 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:52:425 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "lname"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:52:886 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:53:309 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:53:311 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+2021/04/12 12:40:53:423 UTC [INFO] R2RMLEngine - [R2RMLEngine:generateRDFTriples] 1 triples generated for http://example.com/base/TriplesMap1
+2021/04/12 12:40:53:423 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertDatabase] Mapping R2RML done.
+2021/04/12 12:40:53:424 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertDatabase] Database extracted in 0.112 seconds.
+2021/04/12 12:40:53:425 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertDatabase] Number of extracted triples : 1
+2021/04/12 12:40:53:425 UTC [INFO] Db2triples - Serialize RDF graph...
+2021/04/12 12:40:53:431 UTC [INFO] Db2triples - RDF graph serialized into /home/jtoledo/tmp/db2triples/test-cases/../results/output.nt
+2021/04/12 12:40:53:771 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:54:222 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:54:225 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+Deployment docker container for mysql...
+**************************************************************************
+Using the database: D000-1table1column0rows (One table, a column, zero rows, no primary key)
+Loading in mysql system the file:d000.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0000 (one table, one column, zero rows)
+Purpose of this test is: Tests if an empty table produces an empty RDF graph
+R2RMLTC0000,passed
+**************************************************************************
+Using the database: D001-1table1column1row (One table, one column, one row, no primary key)
+Loading in mysql system the file:d001.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0001a (One column mapping, subject URI generation by using rr:template)
+Purpose of this test is: Tests: (1) one column mapping; (2) subject URI generation by using rr:tmplate; (3) one column to one property
+R2RMLTC0001a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0001b (One column mapping, generation of a BlankNode subject by using rr:termType)
+Purpose of this test is: Tests: (1) one column mapping; (2) generation of a BlankNode subject by using rr:termType; (3) one column to one property
+R2RMLTC0001b,failed
+**************************************************************************
+Using the database: D002-1table2columns1row (One table, two columns, one row, no primary key)
+Loading in mysql system the file:d002.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0002a (Two columns mapping, generation of a subject URI by the concatenation of two column values)
+Purpose of this test is: Tests: (1) two column mapping, no primary key; (2) subject URI generated by the concatenation of two column values; (3) one column to one property
+R2RMLTC0002a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0002b (Two columns mapping, generation of a BlankNode subject by using rr:template and rr:termType)
+Purpose of this test is: Tests: (1) two column mapping, no primary key; (2) generation of a BlankNode subject by using rr:template; (3) one column to one property
+R2RMLTC0002b,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0002c (Two columns mapping, an undefined SQL identifier)
+Purpose of this test is: Tests the presence of an undefined SQL identifier
+R2RMLTC0002c,passed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0002d (Two columns mapping, generation of a BlankNode subject by using a SQL Query that concatenates two columns)
+Purpose of this test is: Tests (1) two column mapping, no primary key; (2) generation of a BlankNode subject by using a SQL Query that concatenates two columns; (3) one column to one property
+R2RMLTC0002d,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0002e (Two columns mapping, an undefined rr:tableName)
+Purpose of this test is: Tests the presence of an undefined rr:tableName
+R2RMLTC0002e,passed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0002f (Two columns mapping, delimited identifiers referenced as regular identifiers)
+Purpose of this test is: Tests the presence of delimited identifiers referenced as regular identifiers. Within rr:template ID is ok, but Name is not
+R2RMLTC0002f,passed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0002g (Two columns mapping, invalid SQL query)
+Purpose of this test is: Tests the presence of an invalid SQL query
+R2RMLTC0002g,passed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0002h (Two columns mapping, duplicate column name in SELECT)
+Purpose of this test is: Tests the presence of duplicate column names in the SELECT list of the SQL query
+R2RMLTC0002h,passed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0002i (Two columns mapping, SQL Version identifier)
+Purpose of this test is: Tests the presence of a SQL Version identifier 
+R2RMLTC0002i,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0002j (Two columns mapping, qualified column names)
+Purpose of this test is: Tests the presence of qualified column names in the SELECT list of the SQL query
+R2RMLTC0002j,failed
+**************************************************************************
+Using the database: D003-1table3columns1row (One table, three columns, one row, no primary key)
+Loading in mysql system the file:d003.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0003b (Three columns mapping, concatenation of columns, by using a rr:sqlQuery to produce literal)
+Purpose of this test is: Tests: (1) three column mapping; and (2) concatenation of columns to produce literal, by using a rr:sqlQuery
+R2RMLTC0003b,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0003c (Three columns mapping, by using a rr:template to produce literal)
+Purpose of this test is: Tests: (1) three column mapping; and (2) the use of rr:template to produce literal
+R2RMLTC0003c,failed
+**************************************************************************
+Using the database: D004-1table2columns1row (One table, two columns, one row, projection, no primary key)
+Loading in mysql system the file:d004.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0004a (Two column mapping, from one row table to two different triples)
+Purpose of this test is: Tests: (1) two column mapping, (2) subject URI generated by a column value; (3) from one row table to two different triples (4) typing by using rr:class
+R2RMLTC0004a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0004b (Two column mapping, presence of rr:termType rr:Literal on rr:subjectMap)
+Purpose of this test is: Tests: (1) two column mapping (2) the presence of rr:termType rr:Literal on rr:subjectMap, which is invalid
+R2RMLTC0004b,passed
+**************************************************************************
+Using the database: D005-1table3columns3rows2duplicates (One table, three columns, three rows, two duplicate tuples, no primary key)
+Loading in mysql system the file:d005.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0005a (Typing of resources)
+Purpose of this test is: Tests the typing of resources
+R2RMLTC0005a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0005b (Default mapping)
+Purpose of this test is: Tests the generation of a default mapping for tables without a primary key
+R2RMLTC0005b,failed
+**************************************************************************
+Using the database: D006-1table1primarykey1column1row (One table, one primary key, one column, one row)
+Loading in mysql system the file:d006.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0006a (Long form of R2RML by using rr:constant in rr:subjectMap, rr:predicateMap, rr:objectMap and rr:graphMap)
+Purpose of this test is: Tests the use of rr:constant in rr:subjectMap, rr:predicateMap, rr:objectMap and rr:graphMap
+R2RMLTC0006a,failed
+**************************************************************************
+Using the database: D007-1table1primarykey2columns1row (One table, one primary key, two columns, one row)
+Loading in mysql system the file:d007.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0007a (Typing resources by relying on rdf:type predicate)
+Purpose of this test is: Tests the typing resources by relying on rdf:type predicate
+R2RMLTC0007a,failed
+-----------------------------------------------------------------2021/04/12 12:40:54:615 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:55:076 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:55:079 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:55:453 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:55:871 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:55:874 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:56:221 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:56:647 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:56:650 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:57:018 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:57:443 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:57:446 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:57:806 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:58:226 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:58:229 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:58:606 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:59:028 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:59:031 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:40:59:392 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:40:59:820 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:40:59:822 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLStructureException: [StdGraphMap:checkSpecificTermType] If the term map is a graph map: only rr:IRI  is required
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.StdGraphMap.checkSpecificTermType(StdGraphMap.java:62)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.AbstractTermMap.checkTermType(AbstractTermMap.java:188)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.AbstractTermMap.setTermType(AbstractTermMap.java:168)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.AbstractTermMap.<init>(AbstractTermMap.java:79)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.StdGraphMap.<init>(StdGraphMap.java:52)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractGraphMap(R2RMLMappingFactory.java:676)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractSubjectMap(R2RMLMappingFactory.java:646)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractTriplesMap(R2RMLMappingFactory.java:295)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractR2RMLMapping(R2RMLMappingFactory.java:134)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:183)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:00:256 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:00:685 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:00:687 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:01:072 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:01:502 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:01:505 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Sport"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:01:906 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:02:320 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:02:323 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:02:827 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:03:257 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:03:259 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:03:642 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:04:077 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:04:079 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:04:469 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:04:904 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:04:907 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Name"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:05:266 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:05:683 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:05:685 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Name"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:06:151 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:06:582 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:06:585 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Country Code"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:06:950 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:07:379 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:07:381 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Name"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:07:751 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:08:178 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:08:181 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Name"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:08:770 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:09:199 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:09:201 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:09:608 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:10:045 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:10:048 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID_Student"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:10:569 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:10:999 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:11:002 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "amount"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:11:368 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:11:790 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:11:793 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "lname"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:12:150 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:12:580 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:12:583 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLStructureException: [R2RMLMappingFactory:launchPreChecks] You have a triples map without subject map : http://example.com/base/TriplesMap1.
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.launchPreChecks(R2RMLMappingFactory.java:258)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractR2RMLMapping(R2RMLMappingFactory.java:122)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:183)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:12:909 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:13:320 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:13:323 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLStructureException: [R2RMLMappingFactory:extractR2RMLMapping] http://example.com/base/TriplesMap1 has many subjectMap (or subject) but only one is required.
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractTripleMapResources(R2RMLMappingFactory.java:231)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractR2RMLMapping(R2RMLMappingFactory.java:124)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:183)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:13:672 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:14:098 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:14:101 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "amount"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:14:571 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:15:005 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:15:007 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "DateOfBirth"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+
+Testing R2RML test-case: R2RMLTC0007b (Assigning triples to Named Graphs)
+Purpose of this test is: Tests the generation of triples to a named graph
+R2RMLTC0007b,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0007c (One column mapping, using rr:class)
+Purpose of this test is: Tests subjectmap with more than one class IRIs, rr:class
+R2RMLTC0007c,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0007d (One column mapping, specifying an rr:predicateObjectMap with rdf:type)
+Purpose of this test is:  Tests subjectmap with an alternative of having rr:class, i.e., by specifying an rr:predicateObjectMap with predicate rdf:type
+R2RMLTC0007d,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0007e (One column mapping, using rr:graphMap and rr:class)
+Purpose of this test is: Tests subjectmap with rr:graphMap and rr:class
+R2RMLTC0007e,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0007f (One column mapping, using rr:graphMap and specifying an rr:predicateObjectMap with rdf:type)
+Purpose of this test is: Tests subjectmap with rr:graphMap and specifying an rr:predicateObjectMap with predicate rdf:type
+R2RMLTC0007f,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0007g (Assigning triples to the default graph)
+Purpose of this test is: Tests the generation of triples to the default graph
+R2RMLTC0007g,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0007h (Assigning triples to a non-IRI named graph)
+Purpose of this test is: Tests the generation of triples to a non-IRI named graph, which is an error
+R2RMLTC0007h,passed
+**************************************************************************
+Using the database: D008-1table1compositeprimarykey3columns1row (One table, a composite primary key, three columns, one row)
+Loading in mysql system the file:d008.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0008a (Generation of triples to a target graph by using rr:graphMap and rr:template)
+Purpose of this test is: Test that results of the mapping can be directed to a target graph by using rr:graphMap and rr:template
+R2RMLTC0008a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0008b (Generation of triples referencing object map)
+Purpose of this test is: Tests the mapping specification referencing object map without join
+R2RMLTC0008b,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0008c (Generation of triples by using multiple predicateMaps within a rr:predicateObjectMap)
+Purpose of this test is: Tests the generation of triples by using multiple predicateMaps within a rr:predicateObjectMap
+R2RMLTC0008c,failed
+**************************************************************************
+Using the database: D009-2tables1primarykey1foreignkey (Two tables, a primary key, a foreign key)
+Loading in mysql system the file:d009.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0009a (Generation of triples from foreign key relations)
+Purpose of this test is: Test foreign key relationships among logical tables
+R2RMLTC0009a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0009b (Generation of triples to multiple graphs)
+Purpose of this test is: Test that results from distinct parts of the mapping can be directed to different target graphs.
+R2RMLTC0009b,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0009c (Unnamed column in a logical table)
+Purpose of this test is: Test a logical table with unnamed column.
+R2RMLTC0009c,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0009d (Named column in logical table)
+Purpose of this test is: Test a logical table named column.
+R2RMLTC0009d,failed
+**************************************************************************
+Using the database: D010-1table1primarykey3colums3rows (One table, a primary key, three columns, three rows)
+Loading in mysql system the file:d010.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0010a (Template with table column with special chars)
+Purpose of this test is: Tests a template with blank space in column value
+R2RMLTC0010a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0010b (Template with table columns with special chars)
+Purpose of this test is: Tests a template with special chars in column value
+R2RMLTC0010b,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0010c (Template with table columns with special chars and backslashes)
+Purpose of this test is: Tests a template with special chars in column value and backslash escapes in string templates
+R2RMLTC0010c,failed
+**************************************************************************
+Using the database: D011-M2MRelations (Database with many to many relations)
+Loading in mysql system the file:d011.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0011a (M to M relation, by using a SQL query)
+Purpose of this test is: Tests, M to M relations, by using a SQL query
+R2RMLTC0011a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0011b (M to M relation, by using an additional Triples Map)
+Purpose of this test is: Tests, M to M relations, by using an additional Triples Map
+R2RMLTC0011b,failed
+**************************************************************************
+Using the database: D012-2tables2duplicates0nulls (Two tables, two duplicate records, zero nulls, no primary key)
+Loading in mysql system the file:d012.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0012a (Duplicate tuples generate same blank node)
+Purpose of this test is: Tests that blank nodes with same identifier and in the same graph but generated by different logical rows are considered equivalent.
+R2RMLTC0012a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0012b (Duplicate tuples generate same blank node)
+Purpose of this test is: Tests that blank nodes with same identifier and in the same graph but generated by different logical rows are considered equivalent.
+R2RMLTC0012b,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0012c (TriplesMap without subjectMap)
+Purpose of this test is: Tests a R2RML with missing information, TriplesMap without subjectMap.
+R2RMLTC0012c,passed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0012d (TriplesMap with two subjectMap)
+Purpose of this test is: Tests a R2RML with wrong information, TriplesMap with two subjectMap.
+R2RMLTC0012d,passed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0012e (Default mapping)
+Purpose of this test is: Tests the generation of a default mapping for tables without a primary key.
+R2RMLTC0012e,failed
+**************************************************************************
+Using the database: D013-1table1primarykey3columns2rows1nullvalue (One table, one primary key, three columns, two rows, a null value)
+Loading in mysql system the file:d013.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0013a (Generation of empty triples from referenced columns that have null values)
+Purpose of this test is: Tests the generation of empty triples from referenced columns that have null values
+R2RMLTC0013a,failed
+**************************************************************************2021/04/12 12:41:15:537 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:15:960 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:15:962 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "deptId"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:16:326 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:16:748 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:16:750 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.R2RMLDataError: [R2RMLEngine:checkInverseExpression] Every column reference in the inverse expression must be an existing column : "deptno" does not exist.
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.performInverseExpression(R2RMLEngine.java:295)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.extractValueFromTermMap(R2RMLEngine.java:582)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:536)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:17:141 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:17:560 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:17:563 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "empno"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:17:966 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:18:382 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:18:384 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "empno"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:18:820 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:19:250 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:19:252 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Code"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:19:619 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:20:054 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:20:057 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.R2RMLDataError: [AbstractTermMap:checkLanguageTag] Not a valid language tag : english
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.AbstractTermMap.checkLanguageTag(AbstractTermMap.java:236)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.AbstractTermMap.setLanguageTag(AbstractTermMap.java:224)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.AbstractTermMap.<init>(AbstractTermMap.java:77)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.model.StdObjectMap.<init>(StdObjectMap.java:48)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractObjectMap(R2RMLMappingFactory.java:549)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractPredicateObjectMap(R2RMLMappingFactory.java:401)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractPredicateObjectMaps(R2RMLMappingFactory.java:329)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractTriplesMap(R2RMLMappingFactory.java:300)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLMappingFactory.extractR2RMLMapping(R2RMLMappingFactory.java:134)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:183)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:20:489 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:20:910 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:20:912 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:21:289 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:21:717 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:21:720 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:22:104 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:22:532 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:22:534 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:22:909 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:23:336 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:23:339 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:23:704 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:24:131 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:24:134 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:24:622 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:25:050 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:25:053 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "ID"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:25:492 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:25:934 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:25:937 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "FirstName"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:26:314 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:26:747 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:26:750 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "FirstName"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:27:203 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:27:628 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:27:631 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Name"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+2021/04/12 12:41:28:005 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Try to connect jdbc:mysql://localhost/r2rml with com.mysql.cj.jdbc.Driver
+2021/04/12 12:41:28:432 UTC [INFO] SQLConnector - [SQLConnection:extractDatabase] Database connection established.
+2021/04/12 12:41:28:434 UTC [INFO] R2RMLEngine - [R2RMLMapper:convertMySQLDatabase] Start Mapping R2RML...
+java.sql.SQLException: [R2RMLEngine:applyValueToRow] Unknown column : "Name"
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.applyValueToRow(R2RMLEngine.java:785)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriplesFromRow(R2RMLEngine.java:535)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.genereateRDFTriplesFromTriplesMap(R2RMLEngine.java:256)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.generateRDFTriples(R2RMLEngine.java:232)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.runR2RMLMapping(R2RMLEngine.java:152)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLEngine.doConvertDatabase(R2RMLEngine.java:186)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:81)
+	at net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor.convertDatabase(R2RMLProcessor.java:97)
+	at net.antidot.semantic.rdf.rdb2rdf.main.Db2triples.main(Db2triples.java:419)
+Stopping r2rmltc-mysql ... 
+[1A[2KStopping r2rmltc-mysql ... [32mdone[0m[1BRemoving r2rmltc-mysql ... 
+[1A[2KRemoving r2rmltc-mysql ... [32mdone[0m[1BGoing to remove r2rmltc-mysql
+
+Using the database: D014-3tables1primarykey1foreignkey (3 tables, one primary key, one foreign key)
+Loading in mysql system the file:d014.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0014a (Subjectmap with rr:inverseExpression)
+Purpose of this test is: Tests a rr:subjectMap with rr:inverseExpression
+R2RMLTC0014a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0014b (Triplesmaps with rr:inverseExpression and rr:joinCondition)
+Purpose of this test is: Test two triplesmaps, one with a rr:inverseExpression and the other with a rr:joinCondition for foerign key relations
+R2RMLTC0014b,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0014c (Triplesmaps with rr:inverseExpression, rr:joinCondition, and referencing object maps)
+Purpose of this test is: Triplesmaps with rr:inverseExpression, rr:joinCondition, and referencing object maps
+R2RMLTC0014c,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0014d (three tables, one primary key, one foreign key)
+Purpose of this test is: Test the translation of database type codes to IRIs
+R2RMLTC0014d,failed
+**************************************************************************
+Using the database: D015-1table3columns1composityeprimarykey3rows2languages (One table, three columns, one composite primary key, three rows, two languages)
+Loading in mysql system the file:d015.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0015a (Generation of language tags from a table with language information)
+Purpose of this test is: Generation of language tags from a table with language information
+R2RMLTC0015a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0015b (Generation of language tags from a table with language information, and a term map with invalid rr:language value)
+Purpose of this test is: Tests a term map with an invalid rr:language value, which is an error
+R2RMLTC0015b,passed
+**************************************************************************
+Using the database: D016-1table1primarykey10columns3rowsSQLdatatypes (One table, one primary key, ten columns, three rows with sql datatypes)
+Loading in mysql system the file:d016.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0016a (Table with datatypes: string and integer)
+Purpose of this test is: Tests the rr:termtype  and datatype conversions: string and integer
+R2RMLTC0016a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0016b (Table with datatypes: real and float)
+Purpose of this test is: Tests the rr:termtype and datatype conversions: real and float
+R2RMLTC0016b,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0016c (Table with datatypes: date and timestamp)
+Purpose of this test is: Tests the rr:termtype and datatype conversions: date and timestamp
+R2RMLTC0016c,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0016d (Table with datatypes, boolean conversions)
+Purpose of this test is: Tests the rr:termtype and datatype conversions: boolean
+R2RMLTC0016d,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0016e (Table with datatypes, binary column)
+Purpose of this test is: Tests the rr:termtype and datatype conversions: binary
+R2RMLTC0016e,failed
+**************************************************************************
+Using the database: D018-1table1primarykey2columns3rows (One table, one primary key, two columns, three rows)
+Loading in mysql system the file:d018.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0018a (Generation of triples by using CHAR datatype column)
+Purpose of this test is: Generation of triples by using CHAR datatype column, resulting RDF literal is space-padded.
+R2RMLTC0018a,failed
+**************************************************************************
+Using the database: D019-1table1primarykey3columns3rows (One table, one primary key, three columns, three rows)
+Loading in mysql system the file:d019.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0019a (Generation of triples by using IRI value in columns)
+Purpose of this test is: Test the generation of triples by using IRI value in columns
+R2RMLTC0019a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0019b (Generation of triples by using IRI value in columns, with data error)
+Purpose of this test is: Test the generation of triples by using IRI value in columns, conforming R2RML mapping with data error (and no result)
+R2RMLTC0019b,passed
+**************************************************************************
+Using the database: D020-1table1column5rows (One table, one column, five rows)
+Loading in mysql system the file:d020.sql
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0020a (Generation of triples by using IRI value in columns)
+Purpose of this test is: Test the generation of triples by using IRI value in columns
+R2RMLTC0020a,failed
+-----------------------------------------------------------------
+Testing R2RML test-case: R2RMLTC0020b (Generation of triples by using IRI value in columns, with data errors)
+Purpose of this test is: Test the generation of triples by using IRI value in columns, conforming R2RML mapping with data error (and no result)
+R2RMLTC0020b,passed
+Generating the RDF results using EARL vocabulary
